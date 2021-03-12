@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
+const { cosmiconfigSync } = require('cosmiconfig');
 const parseColorManifest = require('../parse-color-manifest');
 const generators = {
   ios: require('../templates/ios'),
@@ -8,39 +9,19 @@ const generators = {
   javascript: require('../templates/javascript'),
 };
 
-const exampleConfig = {
-  colors: {
-    primary: {
-      light: '#000000',
-      dark: '#ffffff',
-    },
-    accent: 'pink',
-    contrasted: {
-      light: '#ccc',
-      highContrastLight: '#fff',
-      dark: '#333',
-      highContrastDark: '#000',
-    },
-  },
-  ios: {
-    outputDirectory:
-      'examples/ColorViewerApp/ios/ColorViewerApp/Images.xcassets/',
-  },
-  android: {
-    outputDirectory: 'examples/ColorViewerApp/android/app/src/main/res/',
-  },
-  javascript: {
-    typescript: true,
-    outputDirectory: 'examples/ColorViewerApp/colors/',
-  },
-};
-
 module.exports = {
   command: 'generate',
   desc: 'TODO: generate description',
   handler: async () => {
-    // TODO: read config
-    const config = exampleConfig;
+    const explorer = cosmiconfigSync('platform-colors');
+    const exploration = explorer.search();
+    if (!exploration) {
+      throw new Error(
+        'No platform-colors configuration found, create one using platform-colors init'
+      );
+    }
+
+    const { config } = exploration;
 
     const colors = parseColorManifest(config.colors);
     const output = Object.keys(generators)
@@ -54,6 +35,7 @@ module.exports = {
         ]);
         return acc.concat(files);
       }, []);
+
     return Promise.all(
       output.map(([filename, contents]) =>
         fs.outputFile(filename, contents + '\n')
