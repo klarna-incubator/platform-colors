@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ios template generates dark colors 1`] = `
+Array [
+  Array [
+    "stringColor.colorset/Contents.json",
+    "{
+  \\"colors\\": [
+    {
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"255.000\\",
+          \\"green\\": \\"255.000\\",
+          \\"red\\": \\"255.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    },
+    {
+      \\"appearances\\": [
+        {
+          \\"appearance\\": \\"luminosity\\",
+          \\"value\\": \\"dark\\"
+        }
+      ],
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"0.000\\",
+          \\"green\\": \\"0.000\\",
+          \\"red\\": \\"0.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    }
+  ],
+  \\"info\\": {
+    \\"author\\": \\"xcode\\",
+    \\"generator\\": \\"platform-colors\\",
+    \\"version\\": 1
+  }
+}",
+  ],
+  Array [
+    "alphaColor.colorset/Contents.json",
+    "{
+  \\"colors\\": [
+    {
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"0.500\\",
+          \\"blue\\": \\"0.000\\",
+          \\"green\\": \\"0.000\\",
+          \\"red\\": \\"255.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    },
+    {
+      \\"appearances\\": [
+        {
+          \\"appearance\\": \\"luminosity\\",
+          \\"value\\": \\"dark\\"
+        }
+      ],
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"0.500\\",
+          \\"blue\\": \\"200.000\\",
+          \\"green\\": \\"200.000\\",
+          \\"red\\": \\"255.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    }
+  ],
+  \\"info\\": {
+    \\"author\\": \\"xcode\\",
+    \\"generator\\": \\"platform-colors\\",
+    \\"version\\": 1
+  }
+}",
+  ],
+]
+`;
+
+exports[`ios template generates high contrast colors 1`] = `
+Array [
+  Array [
+    "stringColor.colorset/Contents.json",
+    "{
+  \\"colors\\": [
+    {
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"204.000\\",
+          \\"green\\": \\"204.000\\",
+          \\"red\\": \\"204.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    },
+    {
+      \\"appearances\\": [
+        {
+          \\"appearance\\": \\"luminosity\\",
+          \\"value\\": \\"dark\\"
+        }
+      ],
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"51.000\\",
+          \\"green\\": \\"51.000\\",
+          \\"red\\": \\"51.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    },
+    {
+      \\"appearances\\": [
+        {
+          \\"appearance\\": \\"contrast\\",
+          \\"value\\": \\"high\\"
+        }
+      ],
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"255.000\\",
+          \\"green\\": \\"255.000\\",
+          \\"red\\": \\"255.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    },
+    {
+      \\"appearances\\": [
+        {
+          \\"appearance\\": \\"luminosity\\",
+          \\"value\\": \\"dark\\"
+        },
+        {
+          \\"appearance\\": \\"contrast\\",
+          \\"value\\": \\"high\\"
+        }
+      ],
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"0.000\\",
+          \\"green\\": \\"0.000\\",
+          \\"red\\": \\"0.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    }
+  ],
+  \\"info\\": {
+    \\"author\\": \\"xcode\\",
+    \\"generator\\": \\"platform-colors\\",
+    \\"version\\": 1
+  }
+}",
+  ],
+]
+`;
+
+exports[`ios template generates light colors 1`] = `
+Array [
+  Array [
+    "stringColor.colorset/Contents.json",
+    "{
+  \\"colors\\": [
+    {
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"255.000\\",
+          \\"green\\": \\"255.000\\",
+          \\"red\\": \\"255.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    }
+  ],
+  \\"info\\": {
+    \\"author\\": \\"xcode\\",
+    \\"generator\\": \\"platform-colors\\",
+    \\"version\\": 1
+  }
+}",
+  ],
+  Array [
+    "alphaColor.colorset/Contents.json",
+    "{
+  \\"colors\\": [
+    {
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"0.500\\",
+          \\"blue\\": \\"0.000\\",
+          \\"green\\": \\"0.000\\",
+          \\"red\\": \\"255.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    }
+  ],
+  \\"info\\": {
+    \\"author\\": \\"xcode\\",
+    \\"generator\\": \\"platform-colors\\",
+    \\"version\\": 1
+  }
+}",
+  ],
+  Array [
+    "namedColor.colorset/Contents.json",
+    "{
+  \\"colors\\": [
+    {
+      \\"color\\": {
+        \\"color-space\\": \\"srgb\\",
+        \\"components\\": {
+          \\"alpha\\": \\"1.000\\",
+          \\"blue\\": \\"255.000\\",
+          \\"green\\": \\"0.000\\",
+          \\"red\\": \\"0.000\\"
+        }
+      },
+      \\"idiom\\": \\"universal\\"
+    }
+  ],
+  \\"info\\": {
+    \\"author\\": \\"xcode\\",
+    \\"generator\\": \\"platform-colors\\",
+    \\"version\\": 1
+  }
+}",
+  ],
+]
+`;

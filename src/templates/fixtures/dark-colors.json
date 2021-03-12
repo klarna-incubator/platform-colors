@@ -1,0 +1,10 @@
+{
+  "stringColor": {
+    "light": "#fff",
+    "dark": "#000000"
+  },
+  "alphaColor": {
+    "light": "rgba(255, 0, 0, 0.5)",
+    "dark": "rgba(255, 200, 200, 0.5)"
+  }
+}
