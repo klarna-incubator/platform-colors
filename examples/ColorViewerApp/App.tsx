@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Platform,
   StyleSheet,
   ScrollView,
   View,
@@ -12,7 +13,7 @@ import {
 import logo from './logo.png';
 import * as Colors from './colors';
 
-const ColorRow = ({label, color}: {label: string; color: ColorValue}) => (
+const ColorRow = ({ label, color }: { label: string; color: ColorValue }) => (
   <View style={styles.colorRow}>
     <View
       style={[
@@ -30,10 +31,12 @@ const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
+      <View style={styles.header}>
+        <Image source={logo} style={styles.logo} />
+      </View>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>
-        <Image source={logo} style={styles.logo} />
         {Object.entries(Colors).map(([name, color]) => (
           <ColorRow key={name} label={name} color={color} />
         ))}
@@ -46,11 +49,17 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: Colors.background,
+    paddingHorizontal: 10,
+  },
+  header: {
+    paddingTop: Platform.OS === 'ios' ? 40 : 5,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   logo: {
     width: 250,
     aspectRatio: 701 / 356,
-    height: null,
+    height: 150,
   },
   colorRow: {
     paddingHorizontal: 10,
@@ -66,7 +75,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowColor: '#999',
     shadowRadius: 1,
-    shadowOffset: {width: 0, height: 0},
+    shadowOffset: { width: 0, height: 0 },
   },
   colorLabel: {
     color: Colors.text,
