@@ -8,7 +8,7 @@
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-Using colors from the underlying platform primitves is powerful, but maintaining it when targeting multiple platforms is quite cumbersome. This CLI you can generate colors and entrypoint for both iOS, Android, and Web with ease.
+Using colors from the underlying platform primitives is powerful, but maintaining it when targeting multiple platforms is quite cumbersome. This CLI you can generate colors and entrypoint for both iOS, Android, and Web with ease.
 
 Under the hood we are using [`PlatformColor`](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
 
@@ -129,7 +129,7 @@ Example:
 
 #### `javascript`
 
-An object containing `outputDirectory` which should be a directory where you store your Type/JavaScript files and `typescript` which is set to `true` if you want the the output in TypeScript. 
+An object containing `outputDirectory` which should be a directory where you store your Type/JavaScript files and `typescript` which is set to `true` if you want the output in TypeScript. 
 
 Example:
 ```js
@@ -152,7 +152,7 @@ yarn test
 
 ### Example App
 
-There's an example React Native App availabe to test under the examples app.
+There's an example React Native App available to test under the examples app.
 
 ```sh
 cd examples/ColorViewerApp
