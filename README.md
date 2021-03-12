@@ -16,7 +16,7 @@ Under the hood we are using [`PlatformColor`](https://reactnative.dev/docs/platf
 
 ### Easy to use
 
-Type/JavaScript constants are generated automatically – using it with React/Native is as simple as importing the color name. 
+Type/JavaScript constants are generated automatically – using it with React/Native is as simple as importing the color name.
 
 ### Fast
 
@@ -24,7 +24,7 @@ Using platform colors enables you to change from light/dark mode instantly and w
 
 ### Accessible
 
-By utilizing the underlying platforms high contrast colors are supported out of the box. 
+By utilizing the underlying platforms high contrast colors are supported out of the box.
 
 ## Usage
 
@@ -32,7 +32,7 @@ By utilizing the underlying platforms high contrast colors are supported out of 
 npx @klarna/platform-colors
 ```
 
-The first time you run the command it will prompt you which platforms you want to generate files for which will create a file with the following format: 
+The first time you run the command it will prompt you which platforms you want to generate files for which will create a file with the following format:
 
 ```js
 // platform-colors.config.js
@@ -60,7 +60,7 @@ module.exports = {
 };
 ```
 
-**NOTE:** You need to re-run the command after each change to the config to update the generated files. 
+**NOTE:** You need to re-run the command after each change to the config to update the generated files.
 
 Now go ahead and inspect your android, ios and web folders. You should have your color definitions on each platform.
 
@@ -72,9 +72,10 @@ React Native 0.63 & 0.64 doesn't pick up new native colors from iOS, so until th
 
 #### `colors`
 
-An object where the key is the color name, and the value is either a string or an object containing `light` and optionally `highContrastLight`, `dark` & `highContrastDark` properties. 
+An object where the key is the color name, and the value is either a string or an object containing `light` and optionally `highContrastLight`, `dark` & `highContrastDark` properties.
 
 Example:
+
 ```js
 {
   colors: {
@@ -90,9 +91,10 @@ Example:
 
 #### `ios`
 
-An object containing `outputDirectory` which should be an `.xcassets` directory. 
+An object containing `outputDirectory` which should be an `.xcassets` directory.
 
 Example:
+
 ```js
 {
   ios: {
@@ -103,7 +105,7 @@ Example:
 
 #### `android`
 
-An object containing `outputDirectory` which should be an Android `res` directory. 
+An object containing `outputDirectory` which should be an Android `res` directory.
 
 Example:
 ```js
@@ -116,9 +118,10 @@ Example:
 
 #### `css`
 
-An object containing `outputDirectory` which should be a directory where you store CSS files. 
+An object containing `outputDirectory` which should be a directory where you store CSS files.
 
 Example:
+
 ```js
 {
   css: {
@@ -129,9 +132,10 @@ Example:
 
 #### `javascript`
 
-An object containing `outputDirectory` which should be a directory where you store your Type/JavaScript files and `typescript` which is set to `true` if you want the output in TypeScript. 
+An object containing `outputDirectory` which should be a directory where you store your Type/JavaScript files and `typescript` which is set to `true` if you want the output in TypeScript.
 
 Example:
+
 ```js
 {
   "javascript": {
@@ -171,6 +175,10 @@ or
 ```sh
 yarn android
 ```
+
+#### Screenshots
+
+<img src="https://user-images.githubusercontent.com/378279/110977509-8a953500-8362-11eb-9b79-edfed85e6408.png" width="200" height="433" alt="Screenshot in dark mode" /> <img src="https://user-images.githubusercontent.com/378279/110977517-8cf78f00-8362-11eb-98c2-9b0b634ee327.png" width="200" height="433" alt="Screenshot in dark mode" />
 
 ## How to contribute
 
