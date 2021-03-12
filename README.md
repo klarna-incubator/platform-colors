@@ -1,57 +1,130 @@
-# Project Name
-> Short blurb about what your project does.
+<p align="center"><img src="https://user-images.githubusercontent.com/26433/110946195-e2ba4000-833e-11eb-986f-58992913aa27.png" alt="platform-colors Logo" width="500"></p>
+
+# platform-colors
+
+> A CLI that generates required files for iOS, Android and Web to access colors on native platform
 
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
+Using platform colors is super powerful, but adding colors to different platforms is quite cumbersome, with this CLI you will generate colors and an entry point for both iOS, Android, and Web.
 
-One to two paragraph statement about your project and what it does.
+Based on a color manifest (colors.json) this CLI will generate Platform colors for the respective platform.  Using Platform colors enables you to change from light/dark - mode without any additional rerender.
 
-## First steps
+Under the hood we are using [Platform Color!](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties!](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
 
-<details>
- <summary>Installation (for Admins)</summary>
-  
-  Currently, new repositories can be created only by a Klarna Open Source community lead. Please reach out to us if you need assistance.
-  
-  1. Create a new repository by clicking ‘Use this template’ button.
-  
-  2. Make sure your newly created repository is private.
-  
-  3. Enable Dependabot alerts in your candidate repo settings under Security & analysis. You need to enable ‘Allow GitHub to perform read-only analysis of this repository’ first.
-</details>
+## Usage
 
-1. Update `README.md` and `CHANGELOG.md`.
+### Getting started
 
-2. Optionally, change `.github/CONTRIBUTING.md`.
-
-3. Do *not* edit `LICENSE`, `.github/CODE_OF_CONDUCT.md`, and `.github/SECURITY.md`.
-
-## Usage example
-
-A few motivating and useful examples of how your project can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Docs](TODO)._
-
-## Development setup
-
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+Install using yarn
 
 ```sh
-npm install
-npm test
+yarn add --dev platform-colors
+```
+
+or npm
+
+```sh
+npm install --save-dev platform-colors
+```
+
+Now let's create a json manifest file with the color definitions.
+
+```json
+//color-manifest.json
+{
+  "default": {
+    "light": "#000000",
+    "dark": "#ffffff"
+  },
+  "accessible": {
+    "light": "#000000",
+    "highContrast": "#000000",
+    "dark": "#ffffff",
+    "highContrastDark": "#ffffff"
+  },
+  "accent": "#f1f1f1"
+}
+```
+
+And now let's generate their counterpart platform definitions (ios, android and web by default)
+
+```sh
+platform-colors
+```
+
+Now go ahead and inspect your android, ios and web folders. You should have your color definitions on each platform.
+
+Want to customize it? Good, keep reading on.
+
+### Configuration
+
+To generate an initial configuration file, go ahead and run:
+
+```sh
+platform-colors init
+```
+
+This will output a file like this one:
+
+```js
+// platform-colors.config.js
+module.exports = {
+  "colors": require('./src/colors-manifest.json'),
+  "ios": {
+    "outputDirectory": "ios/Project/Something.xcassets/"
+  },
+  "android": {
+    "outputDirectory": "android/.../main/res/"
+      // values/klarna-custompatlfcoo.xml
+      /// values-night/klarna-custompatlfcoo.xml
+  },
+  "css": {
+    "outputDirectory": "static/css/"
+  },
+  "javascript": {
+    "outputDirectory": "src/ui/"
+  }
+}
+```
+Where:
+
+- colors: the source file four your color definitions (`<root>/color-manifest.json` by default)
+- Specify which platforms are you using. We currently support ios | android | css (web) | javascript (js object)
+- outputDirectory: refers to the directory you want the generated output for each platform to be placed
+
+
+## Development Setup
+
+Install dependencies and make sure the tests are working
+
+```sh
+yarn install
+yarn test
+```
+
+### Example App
+
+There's an example React Native App availabe to test under the examples app. 
+
+```sh
+cd examples/ColorViewerApp
+```
+
+Running it either on ios or android by:
+
+```sh
+npx react-natve run-ios
+```
+or
+```sh
+npx react-native run-android
 ```
 
 ## How to contribute
-
-See our guide on [contributing](.github/CONTRIBUTING.md).
-
-## Release History
-
 See our [changelog](CHANGELOG.md).
-
-## License
 
 Copyright © 2021 Klarna Bank AB
 
