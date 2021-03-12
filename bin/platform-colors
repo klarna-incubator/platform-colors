@@ -1,6 +1,3 @@
 #!/usr/bin/env node
 
-const cli = require('../src/cli');
-const commands = require('../src/commands');
-
-cli({ name: 'platform-colors' }, null, (yargs) => commands(yargs));
+require('../src/cli')();

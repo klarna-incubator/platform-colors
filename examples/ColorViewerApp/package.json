@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "postinstall": "patch-package",
-    "colors": "../../bin/platform-colors generate",
+    "colors": "../../bin/platform-colors",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
