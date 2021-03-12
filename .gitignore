@@ -1,0 +1,24 @@
+# OSX
+#
+.DS_Store
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# Vscode / Eclipse
+.settings/
+.project
+.classpath
+.vscode/
+
+# node.js
+#
+node_modules/
+
+# Logs
+*.log
