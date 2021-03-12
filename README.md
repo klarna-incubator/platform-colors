@@ -8,6 +8,8 @@ Using platform colors is super powerful, but adding colors to different platform
 
 Based on a color manifest (colors.json) this CLI will generate Platform colors for the respective platform.  Using Platform colors enables you to change from light/dark - mode without any additional rerender.
 
+Under the hood we are using [Platform Color!](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties!](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
+
 ## Usage
 
 ### Getting started
