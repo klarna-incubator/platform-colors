@@ -10,31 +10,28 @@ const generators = {
 
 const exampleConfig = {
   colors: {
-    default: {
+    primary: {
       light: '#000000',
       dark: '#ffffff',
     },
-    accessible: {
-      light: '#000000',
-      highContrast: '#000000',
-      dark: '#ffffff',
-      highContrastDark: '#ffffff',
+    accent: 'pink',
+    contrasted: {
+      light: '#ccc',
+      highContrastLight: '#fff',
+      dark: '#333',
+      highContrastDark: '#000',
     },
-    accent: '#f1f1f1',
   },
   ios: {
-    outputDirectory: 'ios/Project/Something.xcassets/',
+    outputDirectory:
+      'examples/ColorViewerApp/ios/ColorViewerApp/Images.xcassets/',
   },
   android: {
-    outputDirectory: 'android/.../main/res/',
-    // values/klarna-custompatlfcoo.xml
-    /// values-night/klarna-custompatlfcoo.xml
-  },
-  css: {
-    outputDirectory: 'static/css/',
+    outputDirectory: 'examples/ColorViewerApp/android/app/src/main/res/',
   },
   javascript: {
-    outputDirectory: 'src/ui/',
+    typescript: true,
+    outputDirectory: 'examples/ColorViewerApp/colors/',
   },
 };
 
