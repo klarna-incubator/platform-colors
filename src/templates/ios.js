@@ -48,9 +48,9 @@ module.exports = function generateIos(colors) {
                 'color-space': 'srgb',
                 components: {
                   alpha: alpha.toFixed(3),
-                  blue: blue.toFixed(3),
-                  green: green.toFixed(3),
-                  red: red.toFixed(3),
+                  blue: (blue / 255).toFixed(3),
+                  green: (green / 255).toFixed(3),
+                  red: (red / 255).toFixed(3),
                 },
               },
               idiom: 'universal',

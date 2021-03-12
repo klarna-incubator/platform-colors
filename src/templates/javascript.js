@@ -15,7 +15,7 @@ const generateAndroid = (colors) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('@android:color/${color.name}');`
+        `export const ${color.name} = PlatformColor('@color/${color.name}');`
     )
     .join('\n');
 
