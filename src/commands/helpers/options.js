@@ -1,23 +1,39 @@
 const inquirer = require('inquirer');
 
-const supportedPlatforms = ['ios', 'android', 'css'];
+const supportedPlatforms = ['ios', 'android', 'css', 'javascript'];
 
-const ensurePlatform = async (platform) => {
-  if (platform) {
-    return platform;
+const ensurePlatforms = async (platforms) => {
+  if (platforms) {
+    return platforms;
   }
 
   const input = await inquirer.prompt({
-    name: 'platform',
-    message: 'Platform to use',
-    type: 'list',
+    name: 'platforms',
+    message: 'Platforms to use',
+    type: 'checkbox',
     choices: supportedPlatforms,
   });
 
-  return input.platform;
+  return input.platforms;
+};
+
+const ensureConfigPath = async (configPath) => {
+  if (configPath) {
+    return configPath;
+  }
+
+  const input = await inquirer.prompt({
+    name: 'configPath',
+    message: 'Path to write config file to',
+    type: 'input',
+    default: './platform-colors.config.js'
+  });
+
+  return input.configPath;
 };
 
 module.exports = {
   supportedPlatforms,
-  ensurePlatform,
+  ensurePlatforms,
+  ensureConfigPath,
 };

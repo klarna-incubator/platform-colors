@@ -1,19 +1,36 @@
-const { ensurePlatform, supportedPlatforms } = require('./helpers/options');
+const fs = require('fs-extra');
+const path = require('path');
+const {
+  ensurePlatforms,
+  ensureConfigPath,
+  supportedPlatforms,
+} = require('./helpers/options');
+const generator = require('../templates/platform-colors.config');
 
 module.exports = {
   command: 'init',
-  desc: 'TODO: init description',
+  desc: 'Create platform-colors config file for given platforms',
   builder: (yargs) =>
     yargs.options({
-      platform: {
+      platforms: {
         describe:
-          'Platform to init files for. If not specify, input prompt will be shown',
-        type: 'string',
+          'Platforms to init files for. If not specified, input prompt will be shown',
+        type: 'array',
         choices: supportedPlatforms,
       },
+      configPath: {
+        describe: 'Path of platform-colors config file',
+        type: 'input',
+      },
     }),
-  handler: async ({ platform }) => {
-    platform = await ensurePlatform(platform);
-    console.log(`init for ${platform}`);
+  handler: async ({ platforms, configPath }) => {
+    configPath = await ensureConfigPath(configPath);
+    platforms = await ensurePlatforms(platforms);
+
+    const content = generator(platforms);
+    const filename = path.resolve(configPath);
+    fs.outputFile(filename, content + '\n');
+
+    console.log(`Created file for ${platforms}`);
   },
 };

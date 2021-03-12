@@ -52,7 +52,7 @@ Now let's create a json manifest file with the color definitions.
 And now let's generate their counterpart platform definitions (ios, android and web by default)
 
 ```sh
-platform-colors
+platform-colors generate
 ```
 
 Now go ahead and inspect your android, ios and web folders. You should have your color definitions on each platform.
