@@ -5,8 +5,7 @@ const generators = {
   android: require('../templates/android'),
   css: require('../templates/css'),
 };
-
-const supportedPlatforms = ['ios', 'android', 'css'];
+const { supportedPlatforms } = require('./helpers/options');
 
 const exampleConfig = {
   colors: {

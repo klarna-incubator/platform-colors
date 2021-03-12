@@ -1,19 +1,4 @@
-const inquirer = require('inquirer');
-
-const ensurePlatform = async (platform) => {
-  if (platform) {
-    return platform;
-  }
-
-  const input = await inquirer.prompt({
-    name: 'platform',
-    message: 'Platform to use',
-    type: 'list',
-    choices: platforms,
-  });
-
-  return input.platform;
-};
+const { ensurePlatform, supportedPlatforms } = require('./helpers/options');
 
 module.exports = {
   command: 'init',
@@ -24,11 +9,11 @@ module.exports = {
         describe:
           'Platform to init files for. If not specify, input prompt will be shown',
         type: 'string',
-        choices: platforms,
+        choices: supportedPlatforms,
       },
     }),
   handler: async ({ platform }) => {
     platform = await ensurePlatform(platform);
-    console.log(`omot for ${platform}`);
+    console.log(`init for ${platform}`);
   },
 };
