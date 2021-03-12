@@ -4,8 +4,9 @@
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-<< PROBLEM STATEMENT HERE>>
-<< WHY THIS SOLUTION >>
+Using platform colors is super powerful, but adding colors to different platforms is quite cumbersome, with this CLI you will generate colors and an entry point for both iOS, Android, and Web.
+
+Based on a color manifest (colors.json) this CLI will generate Platform colors for the respective platform.  Using Platform colors enables you to change from light/dark - mode without any additional rerender.
 
 ## Usage
 
