@@ -1,10 +1,14 @@
 module.exports = {
   colors: {
-    primary: {
+    background: {
+      light: '#ffffff',
+      dark: '#000000',
+    },
+    text: {
       light: '#000000',
       dark: '#ffffff',
     },
-    accent: 'red',
+    accent: 'pink',
     contrasted: {
       light: '#ccc',
       highContrastLight: '#fff',

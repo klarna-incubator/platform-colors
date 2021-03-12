@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <resources>
-  <color name="primary">#ffffff</color>
+  <color name="background">#000000</color>
+  <color name="text">#ffffff</color>
   <color name="contrasted">#333333</color>
 </resources>
