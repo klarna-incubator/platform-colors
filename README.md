@@ -1,59 +1,66 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/26433/110946195-e2ba4000-833e-11eb-986f-58992913aa27.png" alt="platform-colors Logo" width="500"></p>
-
-# platform-colors
-
-> A CLI that generates required files for iOS, Android and Web to access colors on native platform
+<p align="center">
+  <h1 align="center">platform-colors</h1>
+  <h3 align="center">Generate platform native colors for iOS, Android & Web</h3>
+</p>
 
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-Using platform colors is super powerful, but adding colors to different platforms is quite cumbersome, with this CLI you will generate colors and an entry point for both iOS, Android, and Web.
+Using colors from the underlying platform primitves is powerful, but maintaining it when targeting multiple platforms is quite cumbersome. This CLI you can generate colors and entrypoint for both iOS, Android, and Web with ease.
 
-Based on a color manifest (colors.json) this CLI will generate Platform colors for the respective platform. Using Platform colors enables you to change from light/dark - mode without any additional rerender.
+Under the hood we are using [`PlatformColor`](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
 
-Under the hood we are using [Platform Color](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
+## Features
+
+### Easy to use
+
+Type/JavaScript constants are generated automatically – using it with React/Native is as simple as importing the color name. 
+
+### Fast
+
+Using platform colors enables you to change from light/dark mode instantly and without any additional rerenders.
+
+### Accessible
+
+By utilizing the underlying platforms high contrast colors are supported out of the box. 
 
 ## Usage
 
-### Getting started
-
-Install using yarn
-
 ```sh
-yarn add --dev platform-colors
+npx @klarna/platform-colors
 ```
 
-or npm
+The first time you run the command it will prompt you which platforms you want to generate files for which will create a file with the following format: 
 
-```sh
-npm install --save-dev platform-colors
-```
-
-Now let's create a json manifest file with the color definitions.
-
-```json
-//color-manifest.json
-{
-  "default": {
-    "light": "#000000",
-    "dark": "#ffffff"
+```js
+// platform-colors.config.js
+module.exports = {
+  "colors": {
+    "background": {
+      "light": "#ffffff",
+      "dark": "#000000"
+    },
+    "accent": "pink"
   },
-  "accessible": {
-    "light": "#000000",
-    "highContrastLight": "#000000",
-    "dark": "#ffffff",
-    "highContrastDark": "#ffffff"
+  "javascript": {
+    "typescript": true,
+    "outputDirectory": "src/colors/"
   },
-  "accent": "#f1f1f1"
-}
+  "ios": {
+    "outputDirectory": "ios/YourApp/Images.xcassets/"
+  },
+  "android": {
+    "outputDirectory": "android/app/src/main/res/"
+  },
+  "css": {
+    "outputDirectory": "static/css/"
+  }
+};
 ```
 
-And now let's generate their counterpart platform definitions (ios, android and web by default)
-
-```sh
-platform-colors
-```
+**NOTE:** You need to re-run the command after each change to the config to update the generated files. 
 
 Now go ahead and inspect your android, ios and web folders. You should have your color definitions on each platform.
 
@@ -61,38 +68,76 @@ Want to customize it? Good, keep reading on.
 
 ### Configuration
 
-To generate an initial configuration file, go ahead and run:
+#### `colors`
 
-```sh
-platform-colors init
-```
+An object where the key is the color name, and the value is either a string or an object containing `light` and optionally `highContrastLight`, `dark` & `highContrastDark` properties. 
 
-This will output a file like this one:
-
+Example:
 ```js
-// platform-colors.config.js
-module.exports = {
-  colors: require('./src/colors-manifest.json'),
-  ios: {
-    outputDirectory: 'ios/Project/Assets.xcassets/',
-  },
-  android: {
-    outputDirectory: 'android/app/src/main/res/',
-  },
-  css: {
-    outputDirectory: 'static/css/',
-  },
-  javascript: {
-    outputDirectory: 'src/colors/',
-  },
-};
+{
+  colors: {
+    contrasted: {
+      light: '#ccc',
+      highContrastLight: '#fff',
+      dark: '#333',
+      highContrastDark: '#000',
+    }
+  }
+}
 ```
 
-Where:
+#### `ios`
 
-- colors: the source file four your color definitions (`<root>/color-manifest.json` by default)
-- Specify which platforms are you using. We currently support ios | android | css (web) | javascript (js object)
-- outputDirectory: refers to the directory you want the generated output for each platform to be placed
+An object containing `outputDirectory` which should be an `.xcassets` directory. 
+
+Example:
+```js
+{
+  ios: {
+    outputDirectory: 'ios/YourProject/Assets.xcassets/'
+  }
+}
+```
+
+#### `android`
+
+An object containing `outputDirectory` which should be an Android `res` directory. 
+
+Example:
+```js
+{
+  android: {
+    outputDirectory: 'android/app/src/main/res/'
+  }
+}
+```
+
+#### `css`
+
+An object containing `outputDirectory` which should be a directory where you store CSS files. 
+
+Example:
+```js
+{
+  css: {
+    outputDirectory: 'static/css/'
+  }
+}
+```
+
+#### `javascript`
+
+An object containing `outputDirectory` which should be a directory where you store your Type/JavaScript files and `typescript` which is set to `true` if you want the the output in TypeScript. 
+
+Example:
+```js
+{
+  "javascript": {
+    "typescript": true,
+    "outputDirectory": "src/colors/"
+  }
+}
+```
 
 ## Development Setup
 
@@ -140,4 +185,4 @@ For license details, see the [LICENSE](LICENSE) file in the root of this project
 [license-image]: https://img.shields.io/badge/license-Apache%202-blue?style=flat-square
 [license-url]: http://www.apache.org/licenses/LICENSE-2.0
 [klarna-image]: https://img.shields.io/badge/%20-Developed%20at%20Klarna-black?labelColor=ffb3c7&style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAOCAYAAAAmL5yKAAAAAXNSR0IArs4c6QAAAIRlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAALQAAAAAQAAAtAAAAABAAOgAQADAAAAAQABAACgAgAEAAAAAQAAABCgAwAEAAAAAQAAAA4AAAAA0LMKiwAAAAlwSFlzAABuugAAbroB1t6xFwAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAVBJREFUKBVtkz0vREEUhsdXgo5qJXohkUgQ0fgFNFpR2V5ClP6CQu9PiB6lEL1I7B9A4/treZ47c252s97k2ffMmZkz5869m1JKL/AFbzAHaiRbmsIf4BdaMAZqMFsOXNxXkroKbxCPV5l8yHOJLVipn9/vEreLa7FguSN3S2ynA/ATeQuI8tTY6OOY34DQaQnq9mPCDtxoBwuRxPfAvPMWnARlB12KAi6eLTPruOOP4gcl33O6+Sjgc83DJkRH+h2MgorLzaPy68W48BG2S+xYnmAa1L+nOxEduMH3fgjGFvZeVkANZau68B6CrgJxWosFFpF7iG+h5wKZqwt42qIJtARu/ix+gqsosEq8D35o6R3c7OL4lAnTDljEe9B3Qa2BYzmHemDCt6Diwo6JY7E+A82OnN9HuoBruAQvUQ1nSxP4GVzBDRyBfygf6RW2/gD3NmEv+K/DZgAAAABJRU5ErkJggg==
-[klarna-url]: https://github.com/klarna-incubator
+[klarna-url]: https://klarna.github.io
