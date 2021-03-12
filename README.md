@@ -10,7 +10,7 @@
 
 Using platform colors is super powerful, but adding colors to different platforms is quite cumbersome, with this CLI you will generate colors and an entry point for both iOS, Android, and Web.
 
-Based on a color manifest (colors.json) this CLI will generate Platform colors for the respective platform.  Using Platform colors enables you to change from light/dark - mode without any additional rerender.
+Based on a color manifest (colors.json) this CLI will generate Platform colors for the respective platform. Using Platform colors enables you to change from light/dark - mode without any additional rerender.
 
 Under the hood we are using [Platform Color](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
 
@@ -41,7 +41,7 @@ Now let's create a json manifest file with the color definitions.
   },
   "accessible": {
     "light": "#000000",
-    "highContrast": "#000000",
+    "highContrastLight": "#000000",
     "dark": "#ffffff",
     "highContrastDark": "#ffffff"
   },
@@ -72,29 +72,27 @@ This will output a file like this one:
 ```js
 // platform-colors.config.js
 module.exports = {
-  "colors": require('./src/colors-manifest.json'),
-  "ios": {
-    "outputDirectory": "ios/Project/Something.xcassets/"
+  colors: require('./src/colors-manifest.json'),
+  ios: {
+    outputDirectory: 'ios/Project/Assets.xcassets/',
   },
-  "android": {
-    "outputDirectory": "android/.../main/res/"
-      // values/klarna-custompatlfcoo.xml
-      /// values-night/klarna-custompatlfcoo.xml
+  android: {
+    outputDirectory: 'android/app/src/main/res/',
   },
-  "css": {
-    "outputDirectory": "static/css/"
+  css: {
+    outputDirectory: 'static/css/',
   },
-  "javascript": {
-    "outputDirectory": "src/ui/"
-  }
-}
+  javascript: {
+    outputDirectory: 'src/colors/',
+  },
+};
 ```
+
 Where:
 
 - colors: the source file four your color definitions (`<root>/color-manifest.json` by default)
 - Specify which platforms are you using. We currently support ios | android | css (web) | javascript (js object)
 - outputDirectory: refers to the directory you want the generated output for each platform to be placed
-
 
 ## Development Setup
 
@@ -107,31 +105,36 @@ yarn test
 
 ### Example App
 
-There's an example React Native App availabe to test under the examples app. 
+There's an example React Native App availabe to test under the examples app.
 
 ```sh
 cd examples/ColorViewerApp
+yarn
+pod install --project-directory=ios
 ```
 
 Running it either on ios or android by:
 
 ```sh
-npx react-natve run-ios
+yarn ios
 ```
+
 or
+
 ```sh
-npx react-native run-android
+yarn android
 ```
 
 ## How to contribute
+
 See our [changelog](CHANGELOG.md).
 
 Copyright © 2021 Klarna Bank AB
 
 For license details, see the [LICENSE](LICENSE) file in the root of this project.
 
-
 <!-- Markdown link & img dfn's -->
+
 [ci-image]: https://img.shields.io/badge/build-passing-brightgreen?style=flat-square
 [ci-url]: https://github.com/klarna-incubator/TODO
 [license-image]: https://img.shields.io/badge/license-Apache%202-blue?style=flat-square

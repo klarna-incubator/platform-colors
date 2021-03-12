@@ -1,12 +1,23 @@
-const cli = (config, args, callback = (x) => x) => {
-  const yargs = require('yargs');
+const fs = require('fs-extra');
+const path = require('path');
+const { cosmiconfigSync } = require('cosmiconfig');
+const generate = require('./generate');
+const initializeConfig = require('./init-config');
 
-  const yargsBase = args ? yargs(args) : yargs;
-  const chain = yargsBase
-    .usage(`Usage: ${config.name} <command> [options]`)
-    .wrap(Math.min(120, yargs.terminalWidth()));
-  callback(chain);
-  return chain.strict().help('help').alias('help', 'h').argv;
+const cli = async () => {
+  const explorer = cosmiconfigSync('platform-colors');
+  const exploration = explorer.search();
+  let config;
+  if (exploration) {
+    config = exploration.config;
+  } else {
+    config = await initializeConfig();
+    await fs.writeFile(
+      path.resolve('platform-colors.config.js'),
+      `module.exports = ${JSON.stringify(config, null, 2)};\n`
+    );
+  }
+  await generate(config);
 };
 
 module.exports = cli;
