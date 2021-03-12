@@ -1,4 +1,4 @@
-# Platform colors
+# <img src="https://user-images.githubusercontent.com/26433/110944711-172cfc80-833d-11eb-8839-f78e12014fce.png" width="60px" align="center" alt="Spectron icon"> platform-colors
 > A CLI that generates required files for iOS, Android and Web to access colors on native platform
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
