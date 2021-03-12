@@ -1,0 +1,10 @@
+{
+  "name": "@klarna/platform-colors",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "platform-colors": "bin/platform-colors"
+  },
+  "repository": "git@github.com:klarna-incubator/platform-colors.git",
+  "license": "Apache-2.0"
+}
