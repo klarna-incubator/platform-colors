@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`android template generates dark colors 1`] = `
+Array [
+  Array [
+    "values/colors.xml",
+    "<?xml version=\\"1.0\\"?>
+<resources>
+  <color name=\\"stringColor\\">#ffffff</color>
+  <color name=\\"alphaColor\\">#ff000080</color>
+</resources>",
+  ],
+  Array [
+    "values-night/colors.xml",
+    "<?xml version=\\"1.0\\"?>
+<resources>
+  <color name=\\"stringColor\\">#000000</color>
+  <color name=\\"alphaColor\\">#ffc8c880</color>
+</resources>",
+  ],
+]
+`;
+
+exports[`android template generates light colors 1`] = `
+Array [
+  Array [
+    "values/colors.xml",
+    "<?xml version=\\"1.0\\"?>
+<resources>
+  <color name=\\"stringColor\\">#ffffff</color>
+  <color name=\\"alphaColor\\">#ff000080</color>
+  <color name=\\"namedColor\\">#0000ff</color>
+</resources>",
+  ],
+]
+`;

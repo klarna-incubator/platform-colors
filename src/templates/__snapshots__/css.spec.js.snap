@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`css template generates dark colors 1`] = `
+Array [
+  Array [
+    "colors.css",
+    ":root {
+  --color-stringColor: #ffffff;
+  --color-alphaColor: #ff000080;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-stringColor: #000000;
+    --color-alphaColor: #ffc8c880;
+  }
+}",
+  ],
+]
+`;
+
+exports[`css template generates high contrast colors 1`] = `
+Array [
+  Array [
+    "colors.css",
+    ":root {
+  --color-stringColor: #cccccc;
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-stringColor: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-stringColor: #333333;
+  }
+}
+
+@media (prefers-contrast: high) and (prefers-color-scheme: dark) {
+  :root {
+    --color-stringColor: #000000;
+  }
+}",
+  ],
+]
+`;
+
+exports[`css template generates light colors 1`] = `
+Array [
+  Array [
+    "colors.css",
+    ":root {
+  --color-stringColor: #ffffff;
+  --color-alphaColor: #ff000080;
+  --color-namedColor: #0000ff;
+}",
+  ],
+]
+`;

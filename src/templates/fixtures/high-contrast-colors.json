@@ -1,0 +1,8 @@
+{
+  "stringColor": {
+    "light": "#ccc",
+    "dark": "#333",
+    "highContrastLight": "#fff",
+    "highContrastDark": "#000"
+  }
+}
