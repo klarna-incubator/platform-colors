@@ -8,7 +8,7 @@
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-Using colors from the underlying platform primitives is powerful, but maintaining it when targeting multiple platforms is quite cumbersome. This CLI you can generate colors and entrypoint for both iOS, Android, and Web with ease.
+Using colors from the underlying platform primitives is powerful, but maintaining it when targeting multiple platforms is quite cumbersome. With this CLI you can generate colors and entrypoint for both iOS, Android, and Web with ease.
 
 Under the hood we are using [`PlatformColor`](https://reactnative.dev/docs/platformcolor) on React Native and [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) on web.
 
