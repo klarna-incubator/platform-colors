@@ -5,6 +5,9 @@
   "bin": {
     "platform-colors": "bin/platform-colors"
   },
+  "scripts": {
+    "test": "jest src"
+  },
   "repository": "git@github.com:klarna-incubator/platform-colors.git",
   "license": "Apache-2.0",
   "dependencies": {
