@@ -8,8 +8,25 @@
   "scripts": {
     "test": "jest src"
   },
-  "repository": "git@github.com:klarna-incubator/platform-colors.git",
+  "repository": "github:klarna-incubator/platform-colors",
+  "homepage": "https://github.com/klarna-incubator/platform-colors",
+  "bugs": {
+    "url": "https://github.com/klarna-incubator/platform-colors/issues"
+  },
   "license": "Apache-2.0",
+  "keywords": [
+    "react-native",
+    "react",
+    "mobile",
+    "ios",
+    "android",
+    "ui",
+    "dark-mode",
+    "accessibility"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
   "dependencies": {
     "chroma-js": "^2.1.1",
     "cosmiconfig": "^7.0.0",
