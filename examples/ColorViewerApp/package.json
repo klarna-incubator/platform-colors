@@ -7,13 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "postinstall": "patch-package",
+    "postinstall": "patch-package && DESTINATION='node_modules/@klarna/platform-colors' LIB_FILE=`cd ../.. && echo \\`pwd\\`/\\`npm pack\\`` && (rm -rf $DESTINATION || true) && mkdir $DESTINATION && tar -xvzf $LIB_FILE -C $DESTINATION --strip-components 1 && rm $LIB_FILE",
     "colors": "../../bin/platform-colors",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "patch-package": "^6.4.6",
-    "postinstall-postinstall": "^2.1.0",
+    "@klarna/platform-colors": "*",
     "react": "16.13.1",
     "react-native": "0.63.4"
   },
@@ -28,6 +27,8 @@
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "patch-package": "^6.4.6",
+    "postinstall-postinstall": "^2.1.0",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },

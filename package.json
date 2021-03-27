@@ -1,7 +1,9 @@
 {
   "name": "@klarna/platform-colors",
   "version": "0.1.0",
-  "main": "src/cli.js",
+  "description": "Generate platform native colors for iOS, Android & Web",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "bin": {
     "platform-colors": "bin/platform-colors"
   },
