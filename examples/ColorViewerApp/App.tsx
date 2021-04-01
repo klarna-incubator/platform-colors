@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  DynamicColorIOS,
-  Platform,
   StyleSheet,
   ScrollView,
   View,
@@ -10,7 +8,7 @@ import {
   StatusBar,
   ColorValue,
 } from 'react-native';
-import {resolveColorSync} from '@klarna/platform-colors';
+import {resolveColor, resolveColorSync} from '@klarna/platform-colors';
 
 import logo from './logo.png';
 import * as Colors from './colors';
@@ -30,6 +28,12 @@ const ColorRow = ({label, color}: {label: string; color: ColorValue}) => (
 );
 
 const App = () => {
+  const [asyncColor, setAsyncColor] = React.useState(null);
+  const syncColor = resolveColorSync(Colors.contrasted);
+  React.useEffect(() => {
+    resolveColor(Colors.contrasted).then((color) => setAsyncColor(color));
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -40,10 +44,8 @@ const App = () => {
         {Object.entries(Colors).map(([name, color]) => (
           <ColorRow key={name} label={name} color={color} />
         ))}
-        <ColorRow
-          label="Resolved PlatformColor"
-          color={resolveColorSync(Colors.contrasted)}
-        />
+        <ColorRow label="resolveColor" color={asyncColor} />
+        <ColorRow label="resolveColorSync" color={syncColor} />
       </ScrollView>
     </>
   );

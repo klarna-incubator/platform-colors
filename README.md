@@ -148,13 +148,13 @@ Example:
 
 ### Getting hex value from dynamic color
 
-Currently only supported on iOS.
+> Note: You must first make sure you've added `@klarna/platform-colors` as a dependency and recompiled the app.
 
 ```js
 import { PlatformColor } from 'react-native';
 import { resolveColorSync } from '@klarna/platform-colors';
 
-const hexColor = resolveColorSync(new PlatformColor('colorName'));
+const hexColor = resolveColorSync(PlatformColor('colorName'));
 ```
 
 ## Development Setup
