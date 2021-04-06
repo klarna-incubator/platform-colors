@@ -10,9 +10,9 @@ module.exports = {
     },
     accent: 'pink',
     contrasted: {
-      light: '#ccc',
+      light: '#ccc9',
       highContrastLight: '#fff',
-      dark: '#333',
+      dark: '#3339',
       highContrastDark: '#000',
     },
   },

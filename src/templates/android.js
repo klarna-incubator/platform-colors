@@ -11,6 +11,15 @@ const fileManifest = [
   },
 ];
 
+function stringifyColor(color) {
+  const hex = color.hex();
+  if (hex.length === 9) {
+    // Android alpha is the first value, whereas on web it's the last
+    return `#${hex.substr(7, 2)}${hex.substr(1, 6)}`;
+  }
+  return hex;
+}
+
 module.exports = function generateAndroid(colors) {
   return fileManifest
     .map(({ filename, colorName }) => {
@@ -23,7 +32,10 @@ module.exports = function generateAndroid(colors) {
         .create({
           resources: {
             '#text': values.map((color) => ({
-              color: { '@name': color.name, '#text': color[colorName].hex() },
+              color: {
+                '@name': color.name,
+                '#text': stringifyColor(color[colorName]),
+              },
             })),
           },
         })

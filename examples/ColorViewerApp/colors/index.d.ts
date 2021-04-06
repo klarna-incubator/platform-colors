@@ -1,4 +1,4 @@
-import { OpaqueColorValue } from "react-native";
+import { OpaqueColorValue } from 'react-native';
 
 export const background: OpaqueColorValue;
 export const text: OpaqueColorValue;
