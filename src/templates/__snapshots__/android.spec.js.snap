@@ -7,7 +7,7 @@ Array [
     "<?xml version=\\"1.0\\"?>
 <resources>
   <color name=\\"stringColor\\">#ffffff</color>
-  <color name=\\"alphaColor\\">#ff000080</color>
+  <color name=\\"alphaColor\\">#80ff0000</color>
 </resources>",
   ],
   Array [
@@ -15,7 +15,7 @@ Array [
     "<?xml version=\\"1.0\\"?>
 <resources>
   <color name=\\"stringColor\\">#000000</color>
-  <color name=\\"alphaColor\\">#ffc8c880</color>
+  <color name=\\"alphaColor\\">#80ffc8c8</color>
 </resources>",
   ],
 ]
@@ -28,7 +28,7 @@ Array [
     "<?xml version=\\"1.0\\"?>
 <resources>
   <color name=\\"stringColor\\">#ffffff</color>
-  <color name=\\"alphaColor\\">#ff000080</color>
+  <color name=\\"alphaColor\\">#80ff0000</color>
   <color name=\\"namedColor\\">#0000ff</color>
 </resources>",
   ],

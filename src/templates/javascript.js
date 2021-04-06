@@ -27,7 +27,10 @@ const generateCss = (colors) =>
     .join('\n');
 
 const generateTypes = (colors) =>
-  colors.map((color) => `export const ${color.name}: unknown;`).join('\n');
+  "import { OpaqueColorValue } from 'react-native';\n\n" +
+  colors
+    .map((color) => `export const ${color.name}: OpaqueColorValue;`)
+    .join('\n');
 
 module.exports = function generateJavaScript(colors, config) {
   const platforms = [].filter(Boolean);

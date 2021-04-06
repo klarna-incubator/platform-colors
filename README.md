@@ -146,6 +146,17 @@ Example:
 }
 ```
 
+### Getting hex value from dynamic color
+
+> Note: You must first make sure you've added `@klarna/platform-colors` as a dependency and recompiled the app.
+
+```js
+import { PlatformColor } from 'react-native';
+import { resolveColorSync } from '@klarna/platform-colors';
+
+const hexColor = resolveColorSync(PlatformColor('colorName'));
+```
+
 ## Development Setup
 
 Install dependencies and make sure the tests are working

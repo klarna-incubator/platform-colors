@@ -29,13 +29,13 @@ Array [
 
 @media (prefers-contrast: high) {
   :root {
-    --color-stringColor: #ffffff;
+    --color-stringColor: #ffffff99;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-stringColor: #333333;
+    --color-stringColor: #33333399;
   }
 }
 
