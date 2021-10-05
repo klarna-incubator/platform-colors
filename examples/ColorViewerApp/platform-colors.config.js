@@ -16,6 +16,10 @@ module.exports = {
       dark: '#3339',
       highContrastDark: '#000',
     },
+    errorBackground: {
+      light: '#ff0000',
+      dark: '#952121',
+    },
   },
   ios: {
     outputDirectory: 'ios/ColorViewerApp/Images.xcassets/',

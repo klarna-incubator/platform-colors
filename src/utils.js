@@ -1,5 +1,10 @@
-const { camelCase, snakeCase, pascalCase, paramCase } = require('change-case');
-const { titleCase } = require('title-case');
+const {
+  camelCase,
+  snakeCase,
+  pascalCase,
+  paramCase,
+  sentenceCase,
+} = require('change-case');
 
 const DEFAULT_PREFIX = 'rnpc';
 
@@ -12,7 +17,7 @@ function generatePrefix(platform, config, name = '') {
       return `${base.endsWith('_') ? base : `${base}_`}${snakeCase(name)}`;
     }
     case 'ios': {
-      return pascalCase(`${prefix}${titleCase(name)}`);
+      return pascalCase(`${prefix}${sentenceCase(name)}`);
     }
     case 'css': {
       const base = paramCase(prefix);
