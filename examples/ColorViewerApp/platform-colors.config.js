@@ -1,4 +1,5 @@
 module.exports = {
+  // prefix: 'example_',
   colors: {
     background: {
       light: '#ffffff',
@@ -25,5 +26,9 @@ module.exports = {
   javascript: {
     typescript: true,
     outputDirectory: 'colors/',
+  },
+  css: {
+    // filename: 'custom.css',
+    outputDirectory: 'css/',
   },
 };
