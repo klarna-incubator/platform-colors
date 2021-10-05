@@ -1,7 +1,7 @@
 const {
   generateDeclaration,
   wrapWithMediaQuery,
-  prefixColor,
+  generatePrefix,
 } = require('../utils');
 
 const cssSections = [
@@ -38,7 +38,7 @@ module.exports = function generateCss(colors, config) {
             generateDeclaration(
               ':root',
               values.map((color) => [
-                `--${prefixColor(color.name, config)}`,
+                `--${generatePrefix('css', config, color.name)}`,
                 color[colorName].hex(),
               ])
             )

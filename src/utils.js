@@ -1,8 +1,27 @@
-const DEFAULT_PREFIX = 'rnpc_';
+const { camelCase, snakeCase, pascalCase, paramCase } = require('change-case');
+const { titleCase } = require('title-case');
 
-function prefixColor(name, config) {
+const DEFAULT_PREFIX = 'rnpc';
+
+function generatePrefix(platform, config, name = '') {
   const prefix = config?.prefix || DEFAULT_PREFIX;
-  return `${prefix}${name}`;
+
+  switch (platform) {
+    case 'android': {
+      const base = snakeCase(prefix);
+      return `${base.endsWith('_') ? base : `${base}_`}${snakeCase(name)}`;
+    }
+    case 'ios': {
+      return pascalCase(`${prefix}${titleCase(name)}`);
+    }
+    case 'css': {
+      const base = paramCase(prefix);
+      return `${base.endsWith('-') ? base : `${base}-`}${paramCase(name)}`;
+    }
+    case 'js': {
+      return camelCase(prefix);
+    }
+  }
 }
 
 function stringifyColor(color) {
@@ -32,9 +51,8 @@ ${indent(body)}
     : body;
 
 module.exports = {
-  prefixColor,
+  generatePrefix,
   stringifyColor,
   generateDeclaration,
   wrapWithMediaQuery,
-  DEFAULT_PREFIX,
 };

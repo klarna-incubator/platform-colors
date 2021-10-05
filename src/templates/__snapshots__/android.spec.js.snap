@@ -6,16 +6,23 @@ Array [
     "values/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <color name=\\"rnpc_stringColor\\">#ffffff</color>
-  <color name=\\"rnpc_alphaColor\\">#80ff0000</color>
+  <color name=\\"rnpc_string_color\\">#ffffff</color>
+  <color name=\\"rnpc_alpha_color\\">#80ff0000</color>
+  <color name=\\"background\\">#ffffff</color>
+  <color name=\\"text\\">#000000</color>
+  <color name=\\"accent\\">#ffc0cb</color>
+  <color name=\\"contrasted\\">#99cccccc</color>
 </resources>",
   ],
   Array [
     "values-night/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <color name=\\"rnpc_stringColor\\">#000000</color>
-  <color name=\\"rnpc_alphaColor\\">#80ffc8c8</color>
+  <color name=\\"rnpc_string_color\\">#000000</color>
+  <color name=\\"rnpc_alpha_color\\">#80ffc8c8</color>
+  <color name=\\"background\\">#000000</color>
+  <color name=\\"text\\">#ffffff</color>
+  <color name=\\"contrasted\\">#99333333</color>
 </resources>",
   ],
 ]
@@ -27,9 +34,13 @@ Array [
     "values/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <color name=\\"rnpc_stringColor\\">#ffffff</color>
-  <color name=\\"rnpc_alphaColor\\">#80ff0000</color>
-  <color name=\\"rnpc_namedColor\\">#0000ff</color>
+  <color name=\\"rnpc_string_color\\">#ffffff</color>
+  <color name=\\"rnpc_alpha_color\\">#80ff0000</color>
+  <color name=\\"rnpc_named_color\\">#0000ff</color>
+  <color name=\\"background\\">#ffffff</color>
+  <color name=\\"text\\">#000000</color>
+  <color name=\\"accent\\">#ffc0cb</color>
+  <color name=\\"contrasted\\">#99cccccc</color>
 </resources>",
   ],
 ]

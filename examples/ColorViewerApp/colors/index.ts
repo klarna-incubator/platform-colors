@@ -1,4 +1,4 @@
-export const background = 'var(--color-rnpc_background)';
-export const text = 'var(--color-rnpc_text)';
-export const accent = 'var(--color-rnpc_accent)';
-export const contrasted = 'var(--color-rnpc_contrasted)';
+export const background = 'var(--rnpc-background)';
+export const text = 'var(--rnpc-text)';
+export const accent = 'var(--rnpc-accent)';
+export const contrasted = 'var(--rnpc-contrasted)';

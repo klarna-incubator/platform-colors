@@ -1,7 +1,7 @@
 const path = require('path');
 const { create, convert } = require('xmlbuilder2');
 const fs = require('fs-extra');
-const { prefixColor, stringifyColor, DEFAULT_PREFIX } = require('../utils');
+const { generatePrefix, stringifyColor } = require('../utils');
 
 const fileManifest = [
   {
@@ -27,14 +27,14 @@ module.exports = function generateAndroid(colors, config) {
         .toString();
 
       const { resources } = convert(xml, { format: 'object' });
-
+      const prefix = generatePrefix('android', config);
       const manualResources = resources.color
-        .filter((c) => !c['@name'].startsWith(config.prefix || DEFAULT_PREFIX))
+        .filter((c) => !c['@name'].startsWith(prefix))
         .map((c) => ({ color: c }));
 
       const generatedResources = values.map((color) => ({
         color: {
-          '@name': prefixColor(color.name, config),
+          '@name': generatePrefix('android', config, color.name),
           '#text': stringifyColor(color[colorName]),
         },
       }));

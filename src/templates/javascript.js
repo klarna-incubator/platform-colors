@@ -1,4 +1,4 @@
-const { prefixColor } = require('../utils');
+const { generatePrefix } = require('../utils');
 
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
@@ -8,9 +8,10 @@ const generateIos = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('${prefixColor(
-          color.name,
-          config
+        `export const ${color.name} = PlatformColor('${generatePrefix(
+          'ios',
+          config,
+          color.name
         )}');`
     )
     .join('\n');
@@ -21,9 +22,10 @@ const generateAndroid = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('@color/${prefixColor(
-          color.name,
-          config
+        `export const ${color.name} = PlatformColor('@color/${generatePrefix(
+          'android',
+          config,
+          color.name
         )}');`
     )
     .join('\n');
@@ -32,9 +34,10 @@ const generateCss = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = 'var(--${prefixColor(
-          color.name,
-          config
+        `export const ${color.name} = 'var(--${generatePrefix(
+          'css',
+          config,
+          color.name
         )})';`
     )
     .join('\n');
