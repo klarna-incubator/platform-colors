@@ -5,7 +5,8 @@ exports[`javascript template outputs android implementation if present in config
 
 export const stringColor = PlatformColor('@color/rnpc_string_color');
 export const alphaColor = PlatformColor('@color/rnpc_alpha_color');
-export const namedColor = PlatformColor('@color/rnpc_named_color');"
+export const namedColor = PlatformColor('@color/rnpc_named_color');
+"
 `;
 
 exports[`javascript template outputs ios implementation if present in config 1`] = `
@@ -13,7 +14,8 @@ exports[`javascript template outputs ios implementation if present in config 1`]
 
 export const stringColor = PlatformColor('RnpcStringColor');
 export const alphaColor = PlatformColor('RnpcAlphaColor');
-export const namedColor = PlatformColor('RnpcNamedColor');"
+export const namedColor = PlatformColor('RnpcNamedColor');
+"
 `;
 
 exports[`javascript template outputs type definitions if enabled in config 1`] = `
@@ -21,17 +23,20 @@ exports[`javascript template outputs type definitions if enabled in config 1`] =
 
 export const stringColor: OpaqueColorValue;
 export const alphaColor: OpaqueColorValue;
-export const namedColor: OpaqueColorValue;"
+export const namedColor: OpaqueColorValue;
+"
 `;
 
 exports[`javascript template outputs typescript for web if enabled in config 1`] = `
 "export const stringColor = 'var(--rnpc-string-color)';
 export const alphaColor = 'var(--rnpc-alpha-color)';
-export const namedColor = 'var(--rnpc-named-color)';"
+export const namedColor = 'var(--rnpc-named-color)';
+"
 `;
 
 exports[`javascript template outputs web implementation if present in config 1`] = `
 "export const stringColor = 'var(--rnpc-string-color)';
 export const alphaColor = 'var(--rnpc-alpha-color)';
-export const namedColor = 'var(--rnpc-named-color)';"
+export const namedColor = 'var(--rnpc-named-color)';
+"
 `;
