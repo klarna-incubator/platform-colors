@@ -8,7 +8,6 @@ Array [
 <resources>
   <color name=\\"rnpc_stringColor\\">#ffffff</color>
   <color name=\\"rnpc_alphaColor\\">#80ff0000</color>
-  <color name=\\"primary\\">#000000</color>
 </resources>",
   ],
   Array [
@@ -17,7 +16,6 @@ Array [
 <resources>
   <color name=\\"rnpc_stringColor\\">#000000</color>
   <color name=\\"rnpc_alphaColor\\">#80ffc8c8</color>
-  <color name=\\"primary\\">#ffffff</color>
 </resources>",
   ],
 ]
@@ -32,7 +30,6 @@ Array [
   <color name=\\"rnpc_stringColor\\">#ffffff</color>
   <color name=\\"rnpc_alphaColor\\">#80ff0000</color>
   <color name=\\"rnpc_namedColor\\">#0000ff</color>
-  <color name=\\"primary\\">#000000</color>
 </resources>",
   ],
 ]
