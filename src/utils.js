@@ -12,18 +12,14 @@ function generatePrefix(platform, config, name = '') {
   const prefix = config?.prefix || DEFAULT_PREFIX;
 
   switch (platform) {
-    case 'android': {
+    case 'android':
       return `${snakeCase(prefix)}_${snakeCase(name)}`;
-    }
-    case 'ios': {
+    case 'ios':
       return pascalCase(`${prefix}${sentenceCase(name)}`);
-    }
-    case 'css': {
+    case 'css':
       return `${paramCase(prefix)}-${paramCase(name)}`;
-    }
-    case 'js': {
+    case 'js':
       return camelCase(prefix);
-    }
   }
 }
 

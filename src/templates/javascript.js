@@ -1,6 +1,9 @@
 const { generatePrefix } = require('../utils');
-
+const prettier = require('prettier');
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
+
+const prettierConfig = prettier.resolveConfig.sync('.');
+const prettierOptions = { ...prettierConfig, parser: 'babel' };
 
 const generateIos = (colors, config) =>
   NATIVE_HEADER +
@@ -52,13 +55,22 @@ module.exports = function generateJavaScript(colors, config) {
   const typescript = Boolean(config.javascript && config.javascript.typescript);
   const extension = typescript ? '.ts' : '.js';
   return [
-    config.ios && [`index.ios${extension}`, generateIos(colors, config)],
+    config.ios && [
+      `index.ios${extension}`,
+      prettier.format(generateIos(colors, config), prettierOptions),
+    ],
     config.android && [
       `index.android${extension}`,
-      generateAndroid(colors, config),
+      prettier.format(generateAndroid(colors, config), prettierOptions),
     ],
-    config.css && [`index${extension}`, generateCss(colors, config)],
+    config.css && [
+      `index${extension}`,
+      prettier.format(generateCss(colors, config), prettierOptions),
+    ],
     typescript &&
-      (config.ios || config.android) && ['index.d.ts', generateTypes(colors)],
+      (config.ios || config.android) && [
+        'index.d.ts',
+        prettier.format(generateTypes(colors), prettierOptions),
+      ],
   ].filter(Boolean);
 };
