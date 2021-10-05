@@ -157,6 +157,19 @@ import { resolveColorSync } from '@klarna/platform-colors';
 const hexColor = resolveColorSync(PlatformColor('colorName'));
 ```
 
+#### `prefix`
+
+We prefix all colors with `rnpc_` by default, you can override that with this option.
+
+Example:
+
+```js
+{
+  prefix: 'custom_',
+  // colors...
+}
+```
+
 ## Development Setup
 
 Install dependencies and make sure the tests are working
