@@ -1,3 +1,5 @@
+const { prefixColor } = require('../utils');
+
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
 const generateIos = (colors) =>
@@ -9,13 +11,16 @@ const generateIos = (colors) =>
     )
     .join('\n');
 
-const generateAndroid = (colors) =>
+const generateAndroid = (colors, config) =>
   NATIVE_HEADER +
   '\n\n' +
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('@color/${color.name}');`
+        `export const ${color.name} = PlatformColor('@color/${prefixColor(
+          color.name,
+          config.android.prefix
+        )}');`
     )
     .join('\n');
 
@@ -33,12 +38,14 @@ const generateTypes = (colors) =>
     .join('\n');
 
 module.exports = function generateJavaScript(colors, config) {
-  const platforms = [].filter(Boolean);
   const typescript = Boolean(config.javascript && config.javascript.typescript);
   const extension = typescript ? '.ts' : '.js';
   return [
     config.ios && [`index.ios${extension}`, generateIos(colors)],
-    config.android && [`index.android${extension}`, generateAndroid(colors)],
+    config.android && [
+      `index.android${extension}`,
+      generateAndroid(colors, config),
+    ],
     config.css && [`index${extension}`, generateCss(colors)],
     typescript &&
       (config.ios || config.android) && ['index.d.ts', generateTypes(colors)],

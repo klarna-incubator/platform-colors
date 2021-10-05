@@ -1,4 +1,5 @@
 const builder = require('xmlbuilder');
+const { prefixColor, stringifyColor } = require('../utils');
 
 const fileManifest = [
   {
@@ -11,16 +12,7 @@ const fileManifest = [
   },
 ];
 
-function stringifyColor(color) {
-  const hex = color.hex();
-  if (hex.length === 9) {
-    // Android alpha is the first value, whereas on web it's the last
-    return `#${hex.substr(7, 2)}${hex.substr(1, 6)}`;
-  }
-  return hex;
-}
-
-module.exports = function generateAndroid(colors) {
+module.exports = function generateAndroid(colors, config) {
   return fileManifest
     .map(({ filename, colorName }) => {
       const values = colors.filter((color) => color[colorName]);
@@ -31,12 +23,14 @@ module.exports = function generateAndroid(colors) {
       const contents = builder
         .create({
           resources: {
-            '#text': values.map((color) => ({
-              color: {
-                '@name': color.name,
-                '#text': stringifyColor(color[colorName]),
-              },
-            })),
+            '#text': values.map((color) => {
+              return {
+                color: {
+                  '@name': prefixColor(color.name, config.android.prefix),
+                  '#text': stringifyColor(color[colorName]),
+                },
+              };
+            }),
           },
         })
         .end({ pretty: true });

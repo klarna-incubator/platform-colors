@@ -20,6 +20,7 @@ module.exports = {
     outputDirectory: 'ios/ColorViewerApp/Images.xcassets/',
   },
   android: {
+    prefix: 'ColorViewerApp',
     outputDirectory: 'android/app/src/main/res/',
   },
   javascript: {

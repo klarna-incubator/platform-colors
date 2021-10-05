@@ -1,3 +1,5 @@
+const { wrapWithMediaQuery, generateDeclaration } = require('../utils');
+
 const cssSections = [
   {
     colorName: 'light',
@@ -15,23 +17,6 @@ const cssSections = [
     colorName: 'highContrastDark',
   },
 ];
-
-const indent = (string) =>
-  string
-    .split('\n')
-    .map((line) => (line.length !== 0 ? `  ${line}` : line))
-    .join('\n');
-
-const generateDeclaration = (selector, properties) => `${selector} {
-${indent(properties.map(([key, value]) => `${key}: ${value};`).join('\n'))}
-}`;
-
-const wrapWithMediaQuery = (mediaQuery, body) =>
-  mediaQuery
-    ? `@media ${mediaQuery} {
-${indent(body)}
-}`
-    : body;
 
 module.exports = function generateCss(colors) {
   return [
