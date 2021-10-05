@@ -32,10 +32,7 @@ module.exports = function generateAndroid(colors, config) {
 
       const haveComment = resources['#'];
       const colors = haveComment
-        ? haveComment
-            .filter((a) => !a['!'])
-            .map((c) => c.color)
-            .flat()
+        ? haveComment.filter((a) => !a['!']).flatMap((c) => c.color)
         : resources?.color;
 
       const manualResources = colors
