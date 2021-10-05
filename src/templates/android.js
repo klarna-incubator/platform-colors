@@ -27,8 +27,18 @@ module.exports = function generateAndroid(colors, config) {
         .toString();
 
       const { resources } = convert(xml, { format: 'object' });
+
       const prefix = generatePrefix('android', config);
-      const manualResources = resources.color
+
+      const haveComment = resources['#'];
+      const colors = haveComment
+        ? haveComment
+            .filter((a) => !a['!'])
+            .map((c) => c.color)
+            .flat()
+        : resources?.color;
+
+      const manualResources = colors
         .filter((c) => !c['@name'].startsWith(prefix))
         .map((c) => ({ color: c }));
 
@@ -43,7 +53,16 @@ module.exports = function generateAndroid(colors, config) {
         { version: '1.0' },
         {
           resources: {
-            '#text': [...generatedResources, ...manualResources],
+            '#text': [
+              {
+                '!': 'Generated code starts changes will be overridden',
+              },
+              ...generatedResources,
+              {
+                '!': 'Generated code ends',
+              },
+              ...manualResources,
+            ],
           },
         }
       );
