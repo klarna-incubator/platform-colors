@@ -34,7 +34,7 @@
     "cosmiconfig": "^7.0.0",
     "fs-extra": "^9.1.0",
     "inquirer": "^8.0.0",
-    "xmlbuilder": "^15.1.1"
+    "xmlbuilder2": "^3.0.2"
   },
   "devDependencies": {
     "jest": "^26.6.3",

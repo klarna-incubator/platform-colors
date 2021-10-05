@@ -1,4 +1,7 @@
-const builder = require('xmlbuilder');
+const path = require('path');
+const { create, convert } = require('xmlbuilder2');
+const fs = require('fs-extra');
+const { prefixColor, stringifyColor, DEFAULT_PREFIX } = require('../utils');
 
 const fileManifest = [
   {
@@ -11,16 +14,7 @@ const fileManifest = [
   },
 ];
 
-function stringifyColor(color) {
-  const hex = color.hex();
-  if (hex.length === 9) {
-    // Android alpha is the first value, whereas on web it's the last
-    return `#${hex.substr(7, 2)}${hex.substr(1, 6)}`;
-  }
-  return hex;
-}
-
-module.exports = function generateAndroid(colors) {
+module.exports = function generateAndroid(colors, config) {
   return fileManifest
     .map(({ filename, colorName }) => {
       const values = colors.filter((color) => color[colorName]);
@@ -28,18 +22,33 @@ module.exports = function generateAndroid(colors) {
     })
     .filter(({ values }) => values.length !== 0)
     .map(({ filename, colorName, values }) => {
-      const contents = builder
-        .create({
+      const xml = fs
+        .readFileSync(path.resolve(config?.android.outputDirectory, filename))
+        .toString();
+
+      const { resources } = convert(xml, { format: 'object' });
+
+      const manualResources = resources.color
+        .filter((c) => !c['@name'].startsWith(config.prefix || DEFAULT_PREFIX))
+        .map((c) => ({ color: c }));
+
+      const generatedResources = values.map((color) => ({
+        color: {
+          '@name': prefixColor(color.name, config),
+          '#text': stringifyColor(color[colorName]),
+        },
+      }));
+
+      const doc = create(
+        { version: '1.0' },
+        {
           resources: {
-            '#text': values.map((color) => ({
-              color: {
-                '@name': color.name,
-                '#text': stringifyColor(color[colorName]),
-              },
-            })),
+            '#text': [...generatedResources, ...manualResources],
           },
-        })
-        .end({ pretty: true });
+        }
+      );
+
+      const contents = doc.end({ prettyPrint: true });
 
       return [filename, contents];
     });

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <resources>
-  <color name="rnpc_background">#ffffff</color>
-  <color name="rnpc_text">#000000</color>
-  <color name="rnpc_accent">#ffc0cb</color>
-  <color name="rnpc_contrasted">#99cccccc</color>
+  <color name="background">#ffffff</color>
+  <color name="text">#000000</color>
+  <color name="accent">#ffc0cb</color>
+  <color name="contrasted">#99cccccc</color>
 </resources>

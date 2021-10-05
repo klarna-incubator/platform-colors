@@ -1,3 +1,9 @@
+const {
+  generateDeclaration,
+  wrapWithMediaQuery,
+  prefixColor,
+} = require('../utils');
+
 const cssSections = [
   {
     colorName: 'light',
@@ -16,27 +22,10 @@ const cssSections = [
   },
 ];
 
-const indent = (string) =>
-  string
-    .split('\n')
-    .map((line) => (line.length !== 0 ? `  ${line}` : line))
-    .join('\n');
-
-const generateDeclaration = (selector, properties) => `${selector} {
-${indent(properties.map(([key, value]) => `${key}: ${value};`).join('\n'))}
-}`;
-
-const wrapWithMediaQuery = (mediaQuery, body) =>
-  mediaQuery
-    ? `@media ${mediaQuery} {
-${indent(body)}
-}`
-    : body;
-
-module.exports = function generateCss(colors) {
+module.exports = function generateCss(colors, config) {
   return [
     [
-      'colors.css',
+      config?.css.filename || 'colors.css',
       cssSections
         .map(({ mediaQuery, colorName }) => {
           const values = colors.filter((color) => color[colorName]);
@@ -49,7 +38,7 @@ module.exports = function generateCss(colors) {
             generateDeclaration(
               ':root',
               values.map((color) => [
-                `--color-${color.name}`,
+                `--color-${prefixColor(color.name, config)}`,
                 color[colorName].hex(),
               ])
             )

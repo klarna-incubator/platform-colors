@@ -1,7 +1,9 @@
-module.exports = function generateIos(colors) {
+const { prefixColor } = require('../utils');
+
+module.exports = function generateIos(colors, config) {
   return colors.map(
     ({ name, light, dark, highContrastLight, highContrastDark }) => {
-      const filename = `${name}.colorset/Contents.json`;
+      const filename = `${prefixColor(name, config)}.colorset/Contents.json`;
       const contents = {
         colors: [
           {

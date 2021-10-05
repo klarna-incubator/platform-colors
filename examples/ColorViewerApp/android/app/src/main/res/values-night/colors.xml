@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <resources>
-  <color name="rnpc_background">#000000</color>
-  <color name="rnpc_text">#ffffff</color>
-  <color name="rnpc_contrasted">#99333333</color>
+  <color name="background">#000000</color>
+  <color name="text">#ffffff</color>
+  <color name="contrasted">#99333333</color>
 </resources>

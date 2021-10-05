@@ -3,7 +3,7 @@
 exports[`ios template generates dark colors 1`] = `
 Array [
   Array [
-    "stringColor.colorset/Contents.json",
+    "rnpc_stringColor.colorset/Contents.json",
     "{
   \\"colors\\": [
     {
@@ -45,7 +45,7 @@ Array [
 }",
   ],
   Array [
-    "alphaColor.colorset/Contents.json",
+    "rnpc_alphaColor.colorset/Contents.json",
     "{
   \\"colors\\": [
     {
@@ -92,7 +92,7 @@ Array [
 exports[`ios template generates high contrast colors 1`] = `
 Array [
   Array [
-    "stringColor.colorset/Contents.json",
+    "rnpc_stringColor.colorset/Contents.json",
     "{
   \\"colors\\": [
     {
@@ -179,7 +179,7 @@ Array [
 exports[`ios template generates light colors 1`] = `
 Array [
   Array [
-    "stringColor.colorset/Contents.json",
+    "rnpc_stringColor.colorset/Contents.json",
     "{
   \\"colors\\": [
     {
@@ -203,7 +203,7 @@ Array [
 }",
   ],
   Array [
-    "alphaColor.colorset/Contents.json",
+    "rnpc_alphaColor.colorset/Contents.json",
     "{
   \\"colors\\": [
     {
@@ -227,7 +227,7 @@ Array [
 }",
   ],
   Array [
-    "namedColor.colorset/Contents.json",
+    "rnpc_namedColor.colorset/Contents.json",
     "{
   \\"colors\\": [
     {
