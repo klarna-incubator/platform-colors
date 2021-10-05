@@ -1,9 +1,12 @@
 const { generatePrefix } = require('../utils');
 const prettier = require('prettier');
+
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
 const prettierConfig = prettier.resolveConfig.sync('.');
 const prettierOptions = { ...prettierConfig, parser: 'babel' };
+
+const formatCode = (code) => prettier.format(code, prettierOptions);
 
 const generateIos = (colors, config) =>
   NATIVE_HEADER +
@@ -57,20 +60,20 @@ module.exports = function generateJavaScript(colors, config) {
   return [
     config.ios && [
       `index.ios${extension}`,
-      prettier.format(generateIos(colors, config), prettierOptions),
+      formatCode(generateIos(colors, config)),
     ],
     config.android && [
       `index.android${extension}`,
-      prettier.format(generateAndroid(colors, config), prettierOptions),
+      formatCode(generateAndroid(colors, config)),
     ],
     config.css && [
       `index${extension}`,
-      prettier.format(generateCss(colors, config), prettierOptions),
+      formatCode(generateCss(colors, config)),
     ],
     typescript &&
       (config.ios || config.android) && [
         'index.d.ts',
-        prettier.format(generateTypes(colors), prettierOptions),
+        formatCode(generateTypes(colors)),
       ],
   ].filter(Boolean);
 };
