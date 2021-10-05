@@ -11,9 +11,9 @@ export const namedColor = PlatformColor('@color/rnpc_named_color');"
 exports[`javascript template outputs ios implementation if present in config 1`] = `
 "import { PlatformColor } from 'react-native';
 
-export const stringColor = PlatformColor('RnpcstringColor');
-export const alphaColor = PlatformColor('RnpcalphaColor');
-export const namedColor = PlatformColor('RnpcnamedColor');"
+export const stringColor = PlatformColor('RnpcStringColor');
+export const alphaColor = PlatformColor('RnpcAlphaColor');
+export const namedColor = PlatformColor('RnpcNamedColor');"
 `;
 
 exports[`javascript template outputs type definitions if enabled in config 1`] = `
