@@ -25,13 +25,13 @@ export const namedColor: OpaqueColorValue;"
 `;
 
 exports[`javascript template outputs typescript for web if enabled in config 1`] = `
-"export const stringColor = 'var(--color-rnpc_stringColor)';
-export const alphaColor = 'var(--color-rnpc_alphaColor)';
-export const namedColor = 'var(--color-rnpc_namedColor)';"
+"export const stringColor = 'var(--rnpc_stringColor)';
+export const alphaColor = 'var(--rnpc_alphaColor)';
+export const namedColor = 'var(--rnpc_namedColor)';"
 `;
 
 exports[`javascript template outputs web implementation if present in config 1`] = `
-"export const stringColor = 'var(--color-rnpc_stringColor)';
-export const alphaColor = 'var(--color-rnpc_alphaColor)';
-export const namedColor = 'var(--color-rnpc_namedColor)';"
+"export const stringColor = 'var(--rnpc_stringColor)';
+export const alphaColor = 'var(--rnpc_alphaColor)';
+export const namedColor = 'var(--rnpc_namedColor)';"
 `;

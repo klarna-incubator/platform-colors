@@ -38,7 +38,7 @@ module.exports = function generateCss(colors, config) {
             generateDeclaration(
               ':root',
               values.map((color) => [
-                `--color-${prefixColor(color.name, config)}`,
+                `--${prefixColor(color.name, config)}`,
                 color[colorName].hex(),
               ])
             )

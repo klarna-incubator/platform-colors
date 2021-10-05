@@ -32,7 +32,7 @@ const generateCss = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = 'var(--color-${prefixColor(
+        `export const ${color.name} = 'var(--${prefixColor(
           color.name,
           config
         )})';`
