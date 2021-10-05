@@ -13,15 +13,13 @@ function generatePrefix(platform, config, name = '') {
 
   switch (platform) {
     case 'android': {
-      const base = snakeCase(prefix);
-      return `${base.endsWith('_') ? base : `${base}_`}${snakeCase(name)}`;
+      return `${snakeCase(prefix)}_${snakeCase(name)}`;
     }
     case 'ios': {
       return pascalCase(`${prefix}${sentenceCase(name)}`);
     }
     case 'css': {
-      const base = paramCase(prefix);
-      return `${base.endsWith('-') ? base : `${base}-`}${paramCase(name)}`;
+      return `${paramCase(prefix)}-${paramCase(name)}`;
     }
     case 'js': {
       return camelCase(prefix);

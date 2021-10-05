@@ -1,5 +1,5 @@
 module.exports = {
-  // prefix: 'example_',
+  // prefix: 'example',
   colors: {
     background: {
       light: '#ffffff',
