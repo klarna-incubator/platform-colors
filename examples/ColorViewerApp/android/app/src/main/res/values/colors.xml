@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <resources>
-  <color name="background">#ffffff</color>
-  <color name="text">#000000</color>
-  <color name="accent">#ffc0cb</color>
-  <color name="contrasted">#99cccccc</color>
+  <color name="ColorViewerApp_background">#ffffff</color>
+  <color name="ColorViewerApp_text">#000000</color>
+  <color name="ColorViewerApp_accent">#ffc0cb</color>
+  <color name="ColorViewerApp_contrasted">#99cccccc</color>
 </resources>

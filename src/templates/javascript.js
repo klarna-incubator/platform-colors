@@ -19,7 +19,7 @@ const generateAndroid = (colors, config) =>
       (color) =>
         `export const ${color.name} = PlatformColor('@color/${prefixColor(
           color.name,
-          config.android.prefix
+          config
         )}');`
     )
     .join('\n');

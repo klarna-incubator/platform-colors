@@ -1,4 +1,5 @@
-function prefixColor(name, prefix) {
+function prefixColor(name, config) {
+  const prefix = config?.android?.prefix;
   return prefix ? `${prefix}_${name}` : name;
 }
 

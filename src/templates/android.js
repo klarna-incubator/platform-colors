@@ -26,7 +26,7 @@ module.exports = function generateAndroid(colors, config) {
             '#text': values.map((color) => {
               return {
                 color: {
-                  '@name': prefixColor(color.name, config.android.prefix),
+                  '@name': prefixColor(color.name, config),
                   '#text': stringifyColor(color[colorName]),
                 },
               };
