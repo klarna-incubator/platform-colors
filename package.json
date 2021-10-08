@@ -29,16 +29,16 @@
   "engines": {
     "node": ">=10"
   },
-  "dependencies": {
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "fast-glob": "^3.2.7",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
     "change-case": "^4.1.2",
     "chroma-js": "^2.1.1",
     "cosmiconfig": "^7.0.0",
     "fs-extra": "^9.1.0",
     "inquirer": "^8.0.0",
     "xmlbuilder2": "^3.0.2"
-  },
-  "devDependencies": {
-    "jest": "^26.6.3",
-    "prettier": "^2.2.1"
   }
 }

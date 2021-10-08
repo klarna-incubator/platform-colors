@@ -35,4 +35,4 @@ module.exports = {
     // filename: 'custom.css',
     outputDirectory: 'css/',
   },
-};
+}
