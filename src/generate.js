@@ -16,19 +16,19 @@ async function generate(config) {
   const colors = parseColorManifest(config.colors);
   const { outputDirectory } = config.ios;
 
-  // const prefix = generatePrefix('ios', config);
-  // const entries = await fg([`${outputDirectory}${prefix}*`], {
-  //   onlyFiles: false,
-  // });
+  const prefix = generatePrefix('ios', config);
+  const entries = await fg([`${outputDirectory}${prefix}*`], {
+    onlyFiles: false,
+  });
 
-  // await Promise.all(
-  //   entries.map(async (dir) => {
-  //     const exist = await fs.pathExists(dir);
-  //     if (exist) {
-  //       await fs.remove(dir);
-  //     }
-  //   })
-  // );
+  await Promise.all(
+    entries.map(async (dir) => {
+      const exist = await fs.pathExists(dir);
+      if (exist) {
+        await fs.remove(dir);
+      }
+    })
+  );
 
   const output = Object.keys(generators)
     .filter((platform) => config[platform])
