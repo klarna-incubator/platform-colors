@@ -46,7 +46,7 @@ async function generate(config) {
 
   await Promise.all(
     output.map(([filename, contents]) =>
-      fs.outputFile(filename, contents + '\n')
+      fs.outputFile(filename, contents)
     )
   );
 
