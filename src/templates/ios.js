@@ -1,9 +1,9 @@
-const { generatePrefix } = require('../utils');
+const { formatName } = require('../utils');
 
 module.exports = function generateIos(colors, config) {
   return colors.map(
     ({ name, light, dark, highContrastLight, highContrastDark }) => {
-      const filename = `${generatePrefix(
+      const filename = `${formatName(
         'ios',
         config,
         name

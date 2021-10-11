@@ -8,7 +8,7 @@ const {
 
 const DEFAULT_PREFIX = 'rnpc';
 
-function generatePrefix(platform, config, name = '') {
+function formatName(platform, config, name = '') {
   const prefix = config?.prefix || DEFAULT_PREFIX;
 
   switch (platform) {

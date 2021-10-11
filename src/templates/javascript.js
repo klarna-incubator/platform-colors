@@ -1,4 +1,4 @@
-const { generatePrefix } = require('../utils');
+const { formatName } = require('../utils');
 
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
@@ -18,7 +18,7 @@ const generateIos = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('${generatePrefix(
+        `export const ${color.name} = PlatformColor('${formatName(
           'ios',
           config,
           color.name
@@ -32,7 +32,7 @@ const generateAndroid = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('@color/${generatePrefix(
+        `export const ${color.name} = PlatformColor('@color/${formatName(
           'android',
           config,
           color.name
@@ -44,7 +44,7 @@ const generateCss = (colors, config) =>
   colors
     .map(
       (color) =>
-        `export const ${color.name} = 'var(--${generatePrefix(
+        `export const ${color.name} = 'var(--${formatName(
           'css',
           config,
           color.name

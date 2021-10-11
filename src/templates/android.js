@@ -1,7 +1,7 @@
 const path = require('path');
 const { create, convert } = require('xmlbuilder2');
 const fs = require('fs-extra');
-const { generatePrefix, stringifyColor } = require('../utils');
+const { formatName, stringifyColor } = require('../utils');
 
 const fileManifest = [
   {
@@ -28,7 +28,7 @@ module.exports = function generateAndroid(colors, config) {
 
       const { resources } = convert(xml, { format: 'object' });
 
-      const prefix = generatePrefix('android', config);
+      const prefix = formatName('android', config);
 
       const haveComment = resources['#'];
       const colors = haveComment
@@ -41,7 +41,7 @@ module.exports = function generateAndroid(colors, config) {
 
       const generatedResources = values.map((color) => ({
         color: {
-          '@name': generatePrefix('android', config, color.name),
+          '@name': formatName('android', config, color.name),
           '#text': stringifyColor(color[colorName]),
         },
       }));

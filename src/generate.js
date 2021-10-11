@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const chalk = require('chalk');
 const fg = require('fast-glob');
 const parseColorManifest = require('./parse-color-manifest');
-const { generatePrefix } = require('./utils');
+const { formatName } = require('./utils');
 
 const generators = {
   ios: require('./templates/ios'),
@@ -16,7 +16,7 @@ async function generate(config) {
   const colors = parseColorManifest(config.colors);
   const { outputDirectory } = config.ios;
 
-  const prefix = generatePrefix('ios', config);
+  const prefix = formatName('ios', config);
   const entries = await fg([`${outputDirectory}${prefix}*`], {
     onlyFiles: false,
   });
@@ -45,9 +45,7 @@ async function generate(config) {
     }, []);
 
   await Promise.all(
-    output.map(([filename, contents]) =>
-      fs.outputFile(filename, contents)
-    )
+    output.map(([filename, contents]) => fs.outputFile(filename, contents))
   );
 
   console.log(
