@@ -1,11 +1,27 @@
+const chalk = require('chalk');
 const { generatePrefix } = require('../utils');
+
+let prettier;
+let prettierConfig;
+
+try {
+  prettier = require('prettier');
+  prettierConfig = prettier.resolveConfig.sync('.');
+
+  console.log(
+    chalk.green(
+      `Using local prettier version: ` +
+        chalk.green.underline.bold(prettier.version)
+    )
+  );
+} catch (er) {
+  prettier = null;
+}
 
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
 const formatCode = (code) => {
   try {
-    const prettier = require.resolve('prettier');
-    const prettierConfig = prettier.resolveConfig.sync('.');
     return prettier.format(code, { ...prettierConfig, parser: 'babel' });
   } catch {
     return code;
