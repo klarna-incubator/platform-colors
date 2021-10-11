@@ -23,7 +23,8 @@ exports[`javascript template outputs type definitions if enabled in config 1`] =
 
 export const stringColor: OpaqueColorValue;
 export const alphaColor: OpaqueColorValue;
-export const namedColor: OpaqueColorValue;"
+export const namedColor: OpaqueColorValue;
+"
 `;
 
 exports[`javascript template outputs typescript for web if enabled in config 1`] = `
