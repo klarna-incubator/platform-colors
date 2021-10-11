@@ -1,12 +1,16 @@
 const { generatePrefix } = require('../utils');
-const prettier = require('prettier');
 
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
-const prettierConfig = prettier.resolveConfig.sync('.');
-const prettierOptions = { ...prettierConfig, parser: 'babel' };
-
-const formatCode = (code) => prettier.format(code, prettierOptions);
+const formatCode = (code) => {
+  try {
+    const prettier = require.resolve('prettier');
+    const prettierConfig = prettier.resolveConfig.sync('.');
+    return prettier.format(code, { ...prettierConfig, parser: 'babel' });
+  } catch {
+    return code;
+  }
+};
 
 const generateIos = (colors, config) =>
   NATIVE_HEADER +
