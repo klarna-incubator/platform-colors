@@ -1,7 +1,16 @@
 const path = require('path');
 const { create, convert } = require('xmlbuilder2');
 const fs = require('fs-extra');
-const { formatName, stringifyColor } = require('../utils');
+const { formatName } = require('../utils');
+
+function stringifyColor(color) {
+  const hex = color.hex();
+  if (hex.length === 9) {
+    // Android alpha is the first value, whereas on web it's the last
+    return `#${hex.substr(7, 2)}${hex.substr(1, 6)}`;
+  }
+  return hex;
+}
 
 const fileManifest = [
   {
