@@ -5,6 +5,10 @@ module.exports = {
       light: '#ffffff',
       dark: '#000000',
     },
+    text: {
+      light: '#000000',
+      dark: '#ffffff',
+    },
     accent: 'pink',
     contrasted: {
       light: '#ccc9',
