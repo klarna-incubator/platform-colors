@@ -25,7 +25,7 @@ const cssSections = [
 module.exports = function generateCss(colors, config) {
   return [
     [
-      config?.css.filename || 'colors.css',
+      config?.css?.filename || 'colors.css',
       cssSections
         .map(({ mediaQuery, colorName }) => {
           const values = colors.filter((color) => color[colorName]);

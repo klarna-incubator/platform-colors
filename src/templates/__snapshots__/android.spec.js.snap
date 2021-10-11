@@ -6,7 +6,7 @@ Array [
     "values/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <!--Generated code starts changes will be overridden-->
+  <!--Generated code with RNPC starts, changes will be overridden-->
   <color name=\\"rnpc_string_color\\">#ffffff</color>
   <color name=\\"rnpc_alpha_color\\">#80ff0000</color>
   <!--Generated code ends-->
@@ -20,7 +20,7 @@ Array [
     "values-night/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <!--Generated code starts changes will be overridden-->
+  <!--Generated code with RNPC starts, changes will be overridden-->
   <color name=\\"rnpc_string_color\\">#000000</color>
   <color name=\\"rnpc_alpha_color\\">#80ffc8c8</color>
   <!--Generated code ends-->
@@ -38,7 +38,7 @@ Array [
     "values/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <!--Generated code starts changes will be overridden-->
+  <!--Generated code with RNPC starts, changes will be overridden-->
   <color name=\\"rnpc_string_color\\">#ffffff</color>
   <color name=\\"rnpc_alpha_color\\">#80ff0000</color>
   <color name=\\"rnpc_named_color\\">#0000ff</color>
