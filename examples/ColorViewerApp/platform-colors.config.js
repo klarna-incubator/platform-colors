@@ -5,20 +5,12 @@ module.exports = {
       light: '#ffffff',
       dark: '#000000',
     },
-    text: {
-      light: '#000000',
-      dark: '#ffffff',
-    },
     accent: 'pink',
     contrasted: {
       light: '#ccc9',
       highContrastLight: '#fff',
       dark: '#3339',
       highContrastDark: '#000',
-    },
-    errorBackground: {
-      light: '#ff0000',
-      dark: '#952121',
     },
   },
   ios: {

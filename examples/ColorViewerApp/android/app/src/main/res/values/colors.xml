@@ -2,10 +2,8 @@
 <resources>
   <!--Generated code starts changes will be overridden-->
   <color name="rnpc_background">#ffffff</color>
-  <color name="rnpc_text">#000000</color>
   <color name="rnpc_accent">#ffc0cb</color>
   <color name="rnpc_contrasted">#99cccccc</color>
-  <color name="rnpc_error_background">#ff0000</color>
   <!--Generated code ends-->
   <color name="background">#ffffff</color>
   <color name="text">#000000</color>
