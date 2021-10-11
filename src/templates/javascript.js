@@ -8,7 +8,7 @@ const formatCode = (code) => {
     const prettierConfig = prettier.resolveConfig.sync('.');
     return prettier.format(code, { ...prettierConfig, parser: 'babel' });
   } catch {
-    return code;
+    return code + '\n';
   }
 };
 

@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs-extra');
-const chalk = require('chalk');
 const fg = require('fast-glob');
 const parseColorManifest = require('./parse-color-manifest');
 const { formatName } = require('./utils');
@@ -48,14 +47,7 @@ async function generate(config) {
     output.map(([filename, contents]) => fs.outputFile(filename, contents))
   );
 
-  console.log(
-    chalk.green(
-      `Generated ${colors.length} colors, ` +
-        chalk.blue.underline.bold('please recompile your app!')
-    )
-  );
-
-  return;
+  return colors;
 }
 
 module.exports = generate;
