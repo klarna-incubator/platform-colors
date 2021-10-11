@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <resources>
-  <!--Generated code starts changes will be overridden-->
+  <!--Generated code with RNPC starts, changes will be overridden-->
   <color name="rnpc_background">#000000</color>
   <color name="rnpc_text">#ffffff</color>
   <color name="rnpc_contrasted">#99333333</color>

@@ -52,7 +52,7 @@ module.exports = function generateAndroid(colors, config) {
           resources: {
             '#text': [
               {
-                '!': 'Generated code starts changes will be overridden',
+                '!': 'Generated code with RNPC starts, changes will be overridden',
               },
               ...generatedResources,
               {
