@@ -1,8 +1,21 @@
-const {
-  generateDeclaration,
-  wrapWithMediaQuery,
-  formatName,
-} = require('../utils');
+const { formatName } = require('../utils');
+
+const indent = (string) =>
+  string
+    .split('\n')
+    .map((line) => (line.length !== 0 ? `  ${line}` : line))
+    .join('\n');
+
+const generateDeclaration = (selector, properties) => `${selector} {
+${indent(properties.map(([key, value]) => `${key}: ${value};`).join('\n'))}
+}`;
+
+const wrapWithMediaQuery = (mediaQuery, body) =>
+  mediaQuery
+    ? `@media ${mediaQuery} {
+${indent(body)}
+}`
+    : body;
 
 const cssSections = [
   {
