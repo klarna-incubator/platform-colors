@@ -50,7 +50,7 @@ ${indent(body)}
     : body;
 
 module.exports = {
-  generatePrefix,
+  formatName,
   stringifyColor,
   generateDeclaration,
   wrapWithMediaQuery,
