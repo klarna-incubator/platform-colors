@@ -12,6 +12,22 @@ function stringifyColor(color) {
   return hex;
 }
 
+const getXmlResources = (config, filename) => {
+  const outputDirectory = config?.android?.outputDirectory;
+
+  if (outputDirectory) {
+    const xml = fs
+      .readFileSync(path.resolve(outputDirectory, filename))
+      .toString();
+
+    const doc = convert(xml, { format: 'object' });
+
+    return doc.resources;
+  }
+
+  return;
+};
+
 const fileManifest = [
   {
     filename: 'values/colors.xml',
@@ -31,22 +47,19 @@ module.exports = function generateAndroid(colors, config) {
     })
     .filter(({ values }) => values.length !== 0)
     .map(({ filename, colorName, values }) => {
-      const xml = fs
-        .readFileSync(path.resolve(config?.android.outputDirectory, filename))
-        .toString();
-
-      const { resources } = convert(xml, { format: 'object' });
-
+      const resources = getXmlResources(config, filename);
       const prefix = formatName('android', config);
 
-      const haveComment = resources['#'];
-      const colors = haveComment
-        ? haveComment.filter((a) => !a['!']).flatMap((c) => c.color)
+      const withComments = resources && resources['#'];
+
+      const colors = withComments
+        ? withComments.filter((a) => !a['!']).flatMap((c) => c.color)
         : resources?.color;
 
-      const manualResources = colors
-        .filter((c) => !c['@name'].startsWith(prefix))
-        .map((c) => ({ color: c }));
+      const manualResources =
+        colors
+          ?.filter((c) => !c['@name'].startsWith(prefix))
+          .map((c) => ({ color: c })) || [];
 
       const generatedResources = values.map((color) => ({
         color: {

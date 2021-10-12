@@ -6,7 +6,7 @@ const formatCode = (code) => {
   try {
     const prettier = require('prettier');
     const prettierConfig = prettier.resolveConfig.sync('.');
-    return prettier.format(code, { ...prettierConfig, parser: 'babel' });
+    return prettier.format(code, { parser: 'babel', ...prettierConfig });
   } catch {
     return code + '\n';
   }

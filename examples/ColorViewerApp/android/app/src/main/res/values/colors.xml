@@ -6,8 +6,5 @@
   <color name="rnpc_accent">#ffc0cb</color>
   <color name="rnpc_contrasted">#99cccccc</color>
   <!--Generated code ends-->
-  <color name="background">#ffffff</color>
-  <color name="text">#000000</color>
-  <color name="accent">#ffc0cb</color>
-  <color name="contrasted">#99cccccc</color>
+  <color name="text_primary">#2097fb</color>
 </resources>

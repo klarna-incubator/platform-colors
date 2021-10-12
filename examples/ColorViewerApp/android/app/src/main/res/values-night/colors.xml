@@ -5,7 +5,5 @@
   <color name="rnpc_text">#ffffff</color>
   <color name="rnpc_contrasted">#99333333</color>
   <!--Generated code ends-->
-  <color name="background">#000000</color>
-  <color name="text">#ffffff</color>
-  <color name="contrasted">#99333333</color>
+  <color name="text_primary">#fb2067</color>
 </resources>
