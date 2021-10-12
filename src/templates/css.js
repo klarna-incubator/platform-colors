@@ -1,20 +1,4 @@
-const cssSections = [
-  {
-    colorName: 'light',
-  },
-  {
-    mediaQuery: '(prefers-contrast: high)',
-    colorName: 'highContrastLight',
-  },
-  {
-    mediaQuery: '(prefers-color-scheme: dark)',
-    colorName: 'dark',
-  },
-  {
-    mediaQuery: '(prefers-contrast: high) and (prefers-color-scheme: dark)',
-    colorName: 'highContrastDark',
-  },
-];
+const { formatName } = require('../utils');
 
 const indent = (string) =>
   string
@@ -33,10 +17,28 @@ ${indent(body)}
 }`
     : body;
 
-module.exports = function generateCss(colors) {
+const cssSections = [
+  {
+    colorName: 'light',
+  },
+  {
+    mediaQuery: '(prefers-contrast: high)',
+    colorName: 'highContrastLight',
+  },
+  {
+    mediaQuery: '(prefers-color-scheme: dark)',
+    colorName: 'dark',
+  },
+  {
+    mediaQuery: '(prefers-contrast: high) and (prefers-color-scheme: dark)',
+    colorName: 'highContrastDark',
+  },
+];
+
+module.exports = function generateCss(colors, config) {
   return [
     [
-      'colors.css',
+      config?.css?.filename || 'colors.css',
       cssSections
         .map(({ mediaQuery, colorName }) => {
           const values = colors.filter((color) => color[colorName]);
@@ -49,7 +51,7 @@ module.exports = function generateCss(colors) {
             generateDeclaration(
               ':root',
               values.map((color) => [
-                `--color-${color.name}`,
+                `--${formatName('css', config, color.name)}`,
                 color[colorName].hex(),
               ])
             )

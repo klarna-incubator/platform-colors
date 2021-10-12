@@ -1,28 +1,54 @@
+const { formatName } = require('../utils');
+
 const NATIVE_HEADER = `import { PlatformColor } from 'react-native';`;
 
-const generateIos = (colors) =>
-  NATIVE_HEADER +
-  '\n\n' +
-  colors
-    .map(
-      (color) => `export const ${color.name} = PlatformColor('${color.name}');`
-    )
-    .join('\n');
+const formatCode = (code) => {
+  try {
+    const prettier = require('prettier');
+    const prettierConfig = prettier.resolveConfig.sync('.');
+    return prettier.format(code, { parser: 'babel', ...prettierConfig });
+  } catch {
+    return code + '\n';
+  }
+};
 
-const generateAndroid = (colors) =>
+const generateIos = (colors, config) =>
   NATIVE_HEADER +
   '\n\n' +
   colors
     .map(
       (color) =>
-        `export const ${color.name} = PlatformColor('@color/${color.name}');`
+        `export const ${color.name} = PlatformColor('${formatName(
+          'ios',
+          config,
+          color.name
+        )}');`
     )
     .join('\n');
 
-const generateCss = (colors) =>
+const generateAndroid = (colors, config) =>
+  NATIVE_HEADER +
+  '\n\n' +
   colors
     .map(
-      (color) => `export const ${color.name} = 'var(--color-${color.name})';`
+      (color) =>
+        `export const ${color.name} = PlatformColor('@color/${formatName(
+          'android',
+          config,
+          color.name
+        )}');`
+    )
+    .join('\n');
+
+const generateCss = (colors, config) =>
+  colors
+    .map(
+      (color) =>
+        `export const ${color.name} = 'var(--${formatName(
+          'css',
+          config,
+          color.name
+        )})';`
     )
     .join('\n');
 
@@ -33,14 +59,25 @@ const generateTypes = (colors) =>
     .join('\n');
 
 module.exports = function generateJavaScript(colors, config) {
-  const platforms = [].filter(Boolean);
   const typescript = Boolean(config.javascript && config.javascript.typescript);
   const extension = typescript ? '.ts' : '.js';
   return [
-    config.ios && [`index.ios${extension}`, generateIos(colors)],
-    config.android && [`index.android${extension}`, generateAndroid(colors)],
-    config.css && [`index${extension}`, generateCss(colors)],
+    config.ios && [
+      `index.ios${extension}`,
+      formatCode(generateIos(colors, config)),
+    ],
+    config.android && [
+      `index.android${extension}`,
+      formatCode(generateAndroid(colors, config)),
+    ],
+    config.css && [
+      `index${extension}`,
+      formatCode(generateCss(colors, config)),
+    ],
     typescript &&
-      (config.ios || config.android) && ['index.d.ts', generateTypes(colors)],
+      (config.ios || config.android) && [
+        'index.d.ts',
+        formatCode(generateTypes(colors)),
+      ],
   ].filter(Boolean);
 };

@@ -6,16 +6,20 @@ Array [
     "values/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <color name=\\"stringColor\\">#ffffff</color>
-  <color name=\\"alphaColor\\">#80ff0000</color>
+  <!--Generated code with RNPC starts, changes will be overridden-->
+  <color name=\\"rnpc_string_color\\">#ffffff</color>
+  <color name=\\"rnpc_alpha_color\\">#80ff0000</color>
+  <!--Generated code ends-->
 </resources>",
   ],
   Array [
     "values-night/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <color name=\\"stringColor\\">#000000</color>
-  <color name=\\"alphaColor\\">#80ffc8c8</color>
+  <!--Generated code with RNPC starts, changes will be overridden-->
+  <color name=\\"rnpc_string_color\\">#000000</color>
+  <color name=\\"rnpc_alpha_color\\">#80ffc8c8</color>
+  <!--Generated code ends-->
 </resources>",
   ],
 ]
@@ -27,9 +31,11 @@ Array [
     "values/colors.xml",
     "<?xml version=\\"1.0\\"?>
 <resources>
-  <color name=\\"stringColor\\">#ffffff</color>
-  <color name=\\"alphaColor\\">#80ff0000</color>
-  <color name=\\"namedColor\\">#0000ff</color>
+  <!--Generated code with RNPC starts, changes will be overridden-->
+  <color name=\\"rnpc_string_color\\">#ffffff</color>
+  <color name=\\"rnpc_alpha_color\\">#80ff0000</color>
+  <color name=\\"rnpc_named_color\\">#0000ff</color>
+  <!--Generated code ends-->
 </resources>",
   ],
 ]

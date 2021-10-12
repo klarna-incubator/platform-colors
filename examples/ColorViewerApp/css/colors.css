@@ -1,0 +1,26 @@
+:root {
+  --rnpc-background: #ffffff;
+  --rnpc-text: #000000;
+  --rnpc-accent: #ffc0cb;
+  --rnpc-contrasted: #cccccc99;
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --rnpc-contrasted: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --rnpc-background: #000000;
+    --rnpc-text: #ffffff;
+    --rnpc-contrasted: #33333399;
+  }
+}
+
+@media (prefers-contrast: high) and (prefers-color-scheme: dark) {
+  :root {
+    --rnpc-contrasted: #000000;
+  }
+}

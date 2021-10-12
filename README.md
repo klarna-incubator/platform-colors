@@ -119,13 +119,14 @@ Example:
 
 #### `css`
 
-An object containing `outputDirectory` which should be a directory where you store CSS files.
+An object containing `outputDirectory` and `filename` which should be a directory where you store CSS files and if you want to change the default filename from `colors.css`.
 
 Example:
 
 ```js
 {
   css: {
+    filename: 'example.css',
     outputDirectory: 'static/css/'
   }
 }
@@ -155,6 +156,19 @@ import { PlatformColor } from 'react-native';
 import { resolveColorSync } from '@klarna/platform-colors';
 
 const hexColor = resolveColorSync(PlatformColor('colorName'));
+```
+
+#### `prefix`
+
+We prefix all colors with `rnpc_` by default, you can override that with this option.
+
+Example:
+
+```js
+{
+  prefix: 'custom_',
+  // colors...
+}
 ```
 
 ## Development Setup

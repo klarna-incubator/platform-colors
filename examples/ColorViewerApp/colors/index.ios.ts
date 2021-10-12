@@ -1,6 +1,6 @@
-import { PlatformColor } from 'react-native';
+import {PlatformColor} from 'react-native'
 
-export const background = PlatformColor('background');
-export const text = PlatformColor('text');
-export const accent = PlatformColor('accent');
-export const contrasted = PlatformColor('contrasted');
+export const background = PlatformColor('RnpcBackground')
+export const text = PlatformColor('RnpcText')
+export const accent = PlatformColor('RnpcAccent')
+export const contrasted = PlatformColor('RnpcContrasted')

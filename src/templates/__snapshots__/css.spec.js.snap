@@ -5,14 +5,14 @@ Array [
   Array [
     "colors.css",
     ":root {
-  --color-stringColor: #ffffff;
-  --color-alphaColor: #ff000080;
+  --rnpc-string-color: #ffffff;
+  --rnpc-alpha-color: #ff000080;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-stringColor: #000000;
-    --color-alphaColor: #ffc8c880;
+    --rnpc-string-color: #000000;
+    --rnpc-alpha-color: #ffc8c880;
   }
 }",
   ],
@@ -24,24 +24,24 @@ Array [
   Array [
     "colors.css",
     ":root {
-  --color-stringColor: #cccccc;
+  --rnpc-string-color: #cccccc;
 }
 
 @media (prefers-contrast: high) {
   :root {
-    --color-stringColor: #ffffff99;
+    --rnpc-string-color: #ffffff99;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-stringColor: #33333399;
+    --rnpc-string-color: #33333399;
   }
 }
 
 @media (prefers-contrast: high) and (prefers-color-scheme: dark) {
   :root {
-    --color-stringColor: #000000;
+    --rnpc-string-color: #000000;
   }
 }",
   ],
@@ -53,9 +53,9 @@ Array [
   Array [
     "colors.css",
     ":root {
-  --color-stringColor: #ffffff;
-  --color-alphaColor: #ff000080;
-  --color-namedColor: #0000ff;
+  --rnpc-string-color: #ffffff;
+  --rnpc-alpha-color: #ff000080;
+  --rnpc-named-color: #0000ff;
 }",
   ],
 ]

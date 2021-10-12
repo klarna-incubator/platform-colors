@@ -1,7 +1,13 @@
-module.exports = function generateIos(colors) {
+const { formatName } = require('../utils');
+
+module.exports = function generateIos(colors, config) {
   return colors.map(
     ({ name, light, dark, highContrastLight, highContrastDark }) => {
-      const filename = `${name}.colorset/Contents.json`;
+      const filename = `${formatName(
+        'ios',
+        config,
+        name
+      )}.colorset/Contents.json`;
       const contents = {
         colors: [
           {
