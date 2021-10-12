@@ -65,10 +65,6 @@ module.exports = {
 
 Now go ahead and inspect your android, ios and web folders. You should have your color definitions on each platform.
 
-### iOS
-
-React Native 0.63 & 0.64 doesn't pick up new native colors from iOS, so until that is fixed you need to apply [this patch](https://github.com/klarna-incubator/platform-colors/blob/master/examples/ColorViewerApp/patches/react-native%2B0.63.4.patch) using [`patch-package`](https://github.com/ds300/patch-package).
-
 ### Configuration
 
 #### `colors`
