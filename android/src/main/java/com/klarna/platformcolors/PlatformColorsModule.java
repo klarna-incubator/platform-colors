@@ -30,8 +30,7 @@ public class PlatformColorsModule extends ReactContextBaseJavaModule {
 
   protected String getHexColor(@Nullable ReadableMap color) {
     int resolvedColor = ColorPropConverter.getColor(color, appContext);
-    String hexColor = Integer.toHexString(resolvedColor);
-    return "#" + hexColor.substring(2) + hexColor.substring(0, 2);
+    return String.format("#%06X", (0xFFFFFF & resolvedColor));
   }
 
   @ReactMethod
