@@ -5,6 +5,8 @@ const {
   paramCase,
   sentenceCase,
 } = require('change-case');
+const path = require('path');
+const fs = require('fs-extra');
 
 const DEFAULT_PREFIX = 'rnpc';
 
@@ -23,6 +25,21 @@ function formatName(platform, config, name = '') {
   }
 }
 
+async function generateAndroidFiles(config) {
+  await Promise.all([
+    fs.ensureFile(
+      path.resolve(
+        `${config.android.outputDirectory}/values-night/`,
+        'colors.xml'
+      )
+    ),
+    fs.ensureFile(
+      path.resolve(`${config.android.outputDirectory}/values/`, 'colors.xml')
+    ),
+  ]);
+}
+
 module.exports = {
   formatName,
+  generateAndroidFiles,
 };

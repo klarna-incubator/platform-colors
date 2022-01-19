@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
 const inquirer = require('inquirer');
-const supportedPlatforms = ['ios', 'android', 'css'];
 
 const inquirePlatforms = async () => {
   const input = await inquirer.prompt({
