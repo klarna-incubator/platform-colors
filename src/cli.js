@@ -4,7 +4,6 @@ const chalk = require('chalk');
 const { cosmiconfigSync } = require('cosmiconfig');
 const generate = require('./generate');
 const initializeConfig = require('./init-config');
-const { generateAndroidFiles } = require('./utils');
 
 const cli = async () => {
   const explorer = cosmiconfigSync('platform-colors');
@@ -18,10 +17,6 @@ const cli = async () => {
       path.resolve('platform-colors.config.js'),
       `module.exports = ${JSON.stringify(config, null, 2)};\n`
     );
-
-    if (config.android) {
-      await generateAndroidFiles(config);
-    }
   }
 
   const colors = await generate(config);

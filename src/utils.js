@@ -25,21 +25,14 @@ function formatName(platform, config, name = '') {
   }
 }
 
-async function generateAndroidFiles(config) {
-  await Promise.all([
-    fs.ensureFile(
-      path.resolve(
-        `${config.android.outputDirectory}/values-night/`,
-        'colors.xml'
-      )
-    ),
-    fs.ensureFile(
-      path.resolve(`${config.android.outputDirectory}/values/`, 'colors.xml')
-    ),
-  ]);
+function ensureAndoridFiles(outputDirectory) {
+  fs.ensureFileSync(
+    path.resolve(`${outputDirectory}/values-night/`, 'colors.xml')
+  );
+  fs.ensureFileSync(path.resolve(`${outputDirectory}/values/`, 'colors.xml'));
 }
 
 module.exports = {
   formatName,
-  generateAndroidFiles,
+  ensureAndoridFiles,
 };

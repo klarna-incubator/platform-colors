@@ -1,7 +1,7 @@
 const path = require('path');
 const { create, convert } = require('xmlbuilder2');
 const fs = require('fs-extra');
-const { formatName } = require('../utils');
+const { formatName, ensureAndoridFiles } = require('../utils');
 
 function stringifyColor(color) {
   const hex = color.hex();
@@ -16,6 +16,8 @@ const getXmlResources = (config, filename) => {
   const outputDirectory = config?.android?.outputDirectory;
 
   if (outputDirectory) {
+    ensureAndoridFiles(outputDirectory);
+
     const xml = fs
       .readFileSync(path.resolve(outputDirectory, filename))
       .toString();
