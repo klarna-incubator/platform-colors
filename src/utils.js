@@ -9,7 +9,7 @@ const {
 const DEFAULT_PREFIX = 'rnpc';
 
 function formatName(platform, config, name = '') {
-  const prefix = config?.prefix || DEFAULT_PREFIX;
+  const prefix = (config && config.prefix) || DEFAULT_PREFIX;
 
   switch (platform) {
     case 'android':
