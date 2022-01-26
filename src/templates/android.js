@@ -13,7 +13,7 @@ function stringifyColor(color) {
 }
 
 const getXmlResources = (config, filename) => {
-  if (config.android && config.android.outputDirectory) {
+  if (config && config.android && config.android.outputDirectory) {
     const outputDirectory = config.android.outputDirectory;
 
     ensureAndoridFiles(outputDirectory);
@@ -56,12 +56,12 @@ module.exports = function generateAndroid(colors, config) {
 
       const colors = withComments
         ? withComments.filter((a) => !a['!']).flatMap((c) => c.color)
-        : resources.color.length
-        ? resources.color
-        : [resources.color] || [];
+        : resources && resources.color;
+
+      const colorsMap = colors && colors.length ? colors : [];
 
       const manualResources =
-        colors
+        colorsMap
           .filter((c) => !c['@name'].startsWith(prefix))
           .map((c) => ({ color: c })) || [];
 
