@@ -16,7 +16,7 @@ async function generate(config) {
   const { outputDirectory } = config.ios;
   const prefix = formatName('ios', config);
 
-  const entries = await fg(`${path.join(outputDirectory, prefix)}*`, {
+  const entries = await fg(`${path.join(outputDirectory, prefix)}*.colorset`, {
     onlyFiles: false,
   });
 
