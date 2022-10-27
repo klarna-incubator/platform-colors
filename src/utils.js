@@ -8,16 +8,29 @@ const {
 
 const DEFAULT_PREFIX = 'rnpc';
 
+function getPrefix(config) {
+  if (!config || typeof config.prefix !== "string") {
+    return DEFAULT_PREFIX
+  }
+  return config.prefix
+}
+
 function formatName(platform, config, name = '') {
-  const prefix = (config && config.prefix) || DEFAULT_PREFIX;
+  const prefix = getPrefix(config);
 
   switch (platform) {
     case 'android':
-      return `${snakeCase(prefix)}_${snakeCase(name)}`;
+      return prefix ?
+        `${snakeCase(prefix)}_${snakeCase(name)}` :
+        snakeCase(name);
     case 'ios':
-      return pascalCase(`${prefix}${sentenceCase(name)}`);
+      return prefix ?
+        pascalCase(`${prefix}${sentenceCase(name)}`) :
+        camelCase(name);
     case 'css':
-      return `${paramCase(prefix)}-${paramCase(name)}`;
+      return prefix ? 
+        `${paramCase(prefix)}-${paramCase(name)}` :
+        paramCase(name);
     case 'js':
       return camelCase(prefix);
   }
