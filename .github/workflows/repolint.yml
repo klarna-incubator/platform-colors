@@ -8,21 +8,4 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      # Checks-out the repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
-
-      - name: Install dependencies
-        run: npm install repolinter log-symbols
-
-      # @TODO Remove when fixed
-      - name: Fix missing dependency in repolint
-        run: npm install is-windows
-
-      - name: Use custom rules
-        run: wget https://raw.githubusercontent.com/klarna-incubator/meta/master/repolint.json
-
-      - name: Run repolint
-        run: ./node_modules/.bin/repolinter $GITHUB_WORKSPACE
+    uses: klarna-incubator/meta/.github/workflows/repolint.yml@master
