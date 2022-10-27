@@ -22,6 +22,7 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          access: public
       - name: Create release
         if: steps.publish.outputs.type != 'none'
         id: create_release
