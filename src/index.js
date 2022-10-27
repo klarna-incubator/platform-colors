@@ -1,7 +1,7 @@
-import { NativeModules } from 'react-native';
+import KLAPlatformColors from './NativeKLAPlatformColors';
 
-const { KLAPlatformColors } = NativeModules;
+export const resolveColor = (...args) =>
+	KLAPlatformColors.resolveColor(...args);
 
-export const resolveColor = KLAPlatformColors.resolveColor;
-
-export const resolveColorSync = KLAPlatformColors.resolveColorSync;
+export const resolveColorSync = (...args) =>
+	KLAPlatformColors.resolveColorSync(...args);

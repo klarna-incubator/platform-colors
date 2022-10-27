@@ -1,5 +1,9 @@
 #import "KLAPlatformColors.h"
 
+#ifdef RCT_NEW_ARCH_ENABLED
+#import <KLAPlatformColorsSpec/KLAPlatformColorsSpec.h>
+#endif
+
 @implementation KLAPlatformColors
 
 RCT_EXPORT_MODULE()
@@ -31,5 +35,12 @@ RCT_EXPORT_METHOD(resolveColor:(UIColor *)color
     return [NSString stringWithFormat:@"#%06x%02x", rgb, alpha];
   }
 }
+
+#ifdef RCT_NEW_ARCH_ENABLED
+- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:(const facebook::react::ObjCTurboModule::InitParams &)params
+{
+    return std::make_shared<facebook::react::NativeKLAPlatformColorsSpecJSI>(params);
+}
+#endif
 
 @end

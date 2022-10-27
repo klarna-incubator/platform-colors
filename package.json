@@ -50,5 +50,13 @@
   "devDependencies": {
     "jest": "^27.4.7",
     "prettier": "^2.4.1"
+  },
+  "codegenConfig": {
+    "name": "KLAPlatformColorsSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.klarna.platformcolors"
+    }
   }
 }
