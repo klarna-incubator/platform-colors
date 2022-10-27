@@ -1,0 +1,36 @@
+name: Deployment
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deployment:
+    name: Release new version
+    if: github.repository_owner == 'klarna-incubator'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: yarn --frozen-lockfile --non-interactive --silent --ignore-scripts
+      - name: Publish to NPM
+        id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_PUBLISH_TOKEN }}
+      - name: Create release
+        if: steps.publish.outputs.type != 'none'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.publish.outputs.version }}
+          release_name: ${{ steps.publish.outputs.version }}
+          body: ${{ steps.publish.outputs.version }}
+          draft: true
+          prerelease: false

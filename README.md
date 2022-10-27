@@ -38,26 +38,26 @@ The first time you run the command it will prompt you which platforms you want t
 ```js
 // platform-colors.config.js
 module.exports = {
-  "colors": {
-    "background": {
-      "light": "#ffffff",
-      "dark": "#000000"
+  colors: {
+    background: {
+      light: '#ffffff',
+      dark: '#000000',
     },
-    "accent": "pink"
+    accent: 'pink',
   },
-  "javascript": {
-    "typescript": true,
-    "outputDirectory": "src/colors/"
+  javascript: {
+    typescript: true,
+    outputDirectory: 'src/colors/',
   },
-  "ios": {
-    "outputDirectory": "ios/YourApp/Images.xcassets/"
+  ios: {
+    outputDirectory: 'ios/YourApp/Images.xcassets/',
   },
-  "android": {
-    "outputDirectory": "android/app/src/main/res/"
+  android: {
+    outputDirectory: 'android/app/src/main/res/',
   },
-  "css": {
-    "outputDirectory": "static/css/"
-  }
+  css: {
+    outputDirectory: 'static/css/',
+  },
 };
 ```
 
@@ -105,6 +105,7 @@ Example:
 An object containing `outputDirectory` which should be an Android `res` directory.
 
 Example:
+
 ```js
 {
   android: {
@@ -205,6 +206,10 @@ yarn android
 ## How to contribute
 
 See our [changelog](CHANGELOG.md).
+
+## Deployment
+
+Update version in `package.json` and merge to master. This will publish the package to NPM, create a draft release on GitHub and a version tag. Edit the release with additional information and publish it.
 
 Copyright © 2021 Klarna Bank AB
 
